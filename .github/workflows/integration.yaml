@@ -1,0 +1,157 @@
+name: Taxonomy build
+
+on:
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: branch name to deploy to (_this_ repo) defaults to 'main'
+        default: main
+        required: true
+      repository:
+        description: repository name which triggered this event (taxonomy default 'xiffy/jenv-taxonomie')
+        required: true
+        default: xiffy/jenv-taxonomie
+      taxonomy_name:
+        description: Name of the taxonomy package
+        required: true
+        default: jenv_taxonomy_2024
+      message:
+        description: Message to use when we commit taxonomy packages to this repository.
+        required: false
+        default: "Manually started workflow."
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout self
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.inputs.branch }}
+
+      - run: |
+          echo ${{ github.actor }} Started an integration run.
+          echo They pushed to ${{ github.event.inputs.repository }}
+      - run: |
+          echo ${{ github.event.inputs.artifact_name }}
+          echo ${{ github.event.inputs.branch }}
+          echo "the message is: ${{ github.event.inputs.message }}"
+          echo run-id: ${{ github.event.inputs.run_id }}
+
+      - name: configure Git
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+
+      - name: Install Arelle
+        run: |
+          pip install arelle-release
+      - run: |
+          sudo apt install zip
+
+      - name: Download taxonomy repository
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ github.event.inputs.repository }}
+          path: _tax
+          ref: ${{ github.event.inputs.branch }}
+
+      - run: |
+          mkdir -p public/taxonomies/${{ github.event.inputs.branch }}
+      - name: remove old package (if any)
+        continue-on-error: true
+        run: |
+            rm public/taxonomies/${{ github.event.inputs.branch }}/${{ github.event.inputs.taxonomy_name }}.zip 2>/dev/null
+
+      - name: Create package
+        run: cd _tax/taxonomies && pwd && zip -r ../../public/taxonomies/${{ github.event.inputs.branch }}/${{ github.event.inputs.taxonomy_name }} ${{ github.event.inputs.taxonomy_name }}
+
+      - id: eplist
+        run: |
+          EP_LIST=`python scripts/find_entrypoints.py _tax/taxonomies/${{ github.event.inputs.taxonomy_name }}` 
+          echo ep_list=$EP_LIST >> $GITHUB_ENV
+
+      - id: packagelist
+        run: |
+          PACKAGE_LIST=`python scripts/find_packages.py public/taxonomies/${{ github.event.inputs.branch }}`
+          echo package_list=$PACKAGE_LIST >> $GITHUB_ENV
+      - id: instancelist
+        run: |
+          INSTANCE_LIST=`python scripts/find_instances.py _tax/instances`
+          echo instance_list=$INSTANCE_LIST >> $GITHUB_ENV
+        continue-on-error: true
+
+      - id: taxtest
+        run: |
+          arelleCmdLine --packages "${{ env.package_list }}"  --validate --file "${{ env.ep_list }}" --logFile=arelle.log --logLevel=warning
+
+      - id: check_arelle
+        name: Check for errors while testing the taxonomy
+        run: |
+          scripts/check_arelle.sh arelle.log
+
+      - id: fail_arelle
+        name: Exit if Arelle spits warnings or errors
+        if: failure()
+        run: |
+          echo "I'm sorry Dave, I'm afraid I can't do that."
+      - run: |
+          rm arelle.log
+
+      - id: instancetest
+        if: ${{ env.instance_list }} > ""
+        run: |
+          arelleCmdLine --packages "${{ env.package_list }}"  --validate --file "${{ env.instance_list }}" --logFile=arelle.log --logLevel=warning
+
+      - id: fail_arelle_instance
+        name: Exit if Arelle spits warnings or errors
+        if: failure()
+        run: |
+          echo "How are you going to use the emergency exit without a your space helmet Dave?"
+
+      - id: ep_as_html
+        name: Create HTML representation of the found entrypoints and add them to 'public'
+        run: |
+          IFS_SAVE="$IFS"   # field-seperator to 
+          IFS='|'
+          for ep in "${{ env.ep_list }}"; do
+            filename=`basename ${ep}`
+            echo "Creating html: ${filename} "
+            arelleCmdLine --packages "${{ env.package_list }}" --file "${ep}" \
+                          --pre="public/taxonomies/${{ github.event.inputs.branch }}/pre_${filename}-nl.html" \
+                          --dim="public/taxonomies/${{ github.event.inputs.branch }}/dim_${filename}-nl.html" \
+                          --labelLang=nl
+            git add public/taxonomies/${{ github.event.inputs.branch }}/*.html
+          done
+          IFS="$IFS_SAVE"
+          ls -l public/taxonomies/${{ github.event.inputs.branch }}/*html
+
+      - name: Create html-index
+        run: |
+          python scripts/html_index.py > public/index.html
+
+      # This should be the last action, after committing the package, the website will be published
+      # We want another  workflow to run,
+      # normally you can't trigger workflows from worflow (commits) with the default github.token
+      - name: Commit files
+        run: |
+            git commit -a -m "Add changes to taxonomy packages"
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.PAT }}
+
+    # Well that won't trigger the deployment as well.
+    # Last resort, ping self?
+      - name: Ping Deployment
+        run: |
+          type="trigger-workflow"
+          
+          curl -L \
+            -X POST \
+          -H "Accept: application/vnd.github+json" \
+          -H "Authorization: Bearer ${{ secrets.PAT }}" \
+          -H "X-GitHub-Api-Version: 2022-11-28" \
+          https://api.github.com/repos/xiffy/sbr.nl-web/actions/workflows/static.yml/dispatches \
+          -d '{"ref":"${{ github.ref }}"}'

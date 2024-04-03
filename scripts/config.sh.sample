@@ -1,0 +1,9 @@
+# Lokaal testen heeft een beetje lokale configuratie nodig.
+# Kopieer dit bestand (of hernoem) naam 'config.sh'
+# pas waar nodig de waardes aan.
+
+# ergens staan de taxonomieen die je ontwikkelt.
+# Die moeten bij elkaar in een bij elkaar in een directory staan
+# hier geef je aan welke. (${HOME} vertaalt zich als /home/<gebruikersnaam>)
+
+local_taxonomy_dir="${HOME}/develop/taxoos"
