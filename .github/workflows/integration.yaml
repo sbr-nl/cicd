@@ -64,7 +64,7 @@ jobs:
             rm public/taxonomies/${{ github.event.inputs.branch }}/${{ github.event.inputs.taxonomy_name }}.zip 2>/dev/null
 
       - name: Create package
-        run: cd _tax && pwd && zip -r ../../public/taxonomies/${{ github.event.inputs.branch }}/${{ github.event.inputs.taxonomy_name }} ${{ github.event.inputs.taxonomy_name }}
+        run: cd _tax && pwd && zip -r ../public/taxonomies/${{ github.event.inputs.branch }}/${{ github.event.inputs.taxonomy_name }} ${{ github.event.inputs.taxonomy_name }}
 
       - id: eplist
         run: |
