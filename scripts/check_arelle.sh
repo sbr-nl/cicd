@@ -7,3 +7,4 @@ if [ -s "$1" ]; then
 else
   echo "Arelle thinks you're a star!"
 fi
+
