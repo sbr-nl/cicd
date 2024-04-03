@@ -114,7 +114,7 @@ jobs:
         run: |
           IFS_SAVE="$IFS"   # field-seperator to 
           IFS="|"
-          for ep in ${{ env.ep_list }}; do
+          for ep in "${{ env.ep_list }}"; do
             filename=`basename ${ep} .xsd`
             echo "Creating html: ${filename} "
             arelleCmdLine --packages "${{ env.package_list }}" --file "${ep}" \
