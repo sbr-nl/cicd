@@ -114,8 +114,8 @@ for ep_ in $ep; do
     echo "=-="
     echo "Creating html: ${filename} "
     arelleCmdLine --packages "${packages}" --file "${ep_}" \
-                  --pre="public/taxonomies/${branch}/pre_${filename}.html" \
-                  --dim="public/taxonomies/${branch}/dim_${filename}.html" \
+                  --pre="public/taxonomies/${branch}/pre_${filename}-nl.html" \
+                  --dim="public/taxonomies/${branch}/dim_${filename}-nl.html" \
                   --labelLang=nl
 done
 IFS="$IFS_SAVE"
