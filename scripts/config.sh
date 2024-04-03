@@ -1,1 +1,1 @@
-local_taxonomy_dir="${HOME}/sbr-nl/taxonomies/
+local_taxonomy_dir="${HOME}/sbr-nl/taxonomies/"

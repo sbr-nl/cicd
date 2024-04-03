@@ -75,11 +75,11 @@ cd tmp
 
 echo "Cloning ${repository} with branch: ${branch}"
 git clone --branch $branch $repository
-cd ${repo_name}/taxonomies
+cd ${repo_name}
 echo "=+="
 echo "Creating taxonomy package"
-zip -r ../../../local-test/taxonomies/${branch}/${taxonomy_name} ${taxonomy_name}
-cd ../../..  # get back to where you once belonged
+zip -r ../../local-test/taxonomies/${branch}/${taxonomy_name} ${taxonomy_name}
+cd ../..  # get back to where you once belonged
 
 # Als wij de eerste zijn die dit package maken, zet het in git.
 if test ! -f "public/taxonomies/${branch}/${taxonomy_name}.zip"; then
@@ -95,7 +95,7 @@ echo "gather entrypoints from the requested taxonomy"
 echo "see which other taxonomies can be loaded"
 echo "find test instances"
 
-ep=`python ./scripts/find_entrypoints.py tmp/${repo_name}/taxonomies/${taxonomy_name}`
+ep=`python ./scripts/find_entrypoints.py tmp/${repo_name}/${taxonomy_name}`
 packages=`python ./scripts/find_packages.py local-test/taxonomies/${branch}`
 instances=`python ./scripts/find_instances.py tmp/${repo_name}/instances`
 

@@ -64,11 +64,11 @@ jobs:
             rm public/taxonomies/${{ github.event.inputs.branch }}/${{ github.event.inputs.taxonomy_name }}.zip 2>/dev/null
 
       - name: Create package
-        run: cd _tax/taxonomies && pwd && zip -r ../../public/taxonomies/${{ github.event.inputs.branch }}/${{ github.event.inputs.taxonomy_name }} ${{ github.event.inputs.taxonomy_name }}
+        run: cd _tax && pwd && zip -r ../../public/taxonomies/${{ github.event.inputs.branch }}/${{ github.event.inputs.taxonomy_name }} ${{ github.event.inputs.taxonomy_name }}
 
       - id: eplist
         run: |
-          EP_LIST=`python scripts/find_entrypoints.py _tax/taxonomies/${{ github.event.inputs.taxonomy_name }}` 
+          EP_LIST=`python scripts/find_entrypoints.py _tax/${{ github.event.inputs.taxonomy_name }}` 
           echo ep_list=$EP_LIST >> $GITHUB_ENV
 
       - id: packagelist
