@@ -115,7 +115,8 @@ jobs:
         run: |
           IFS_SAVE="$IFS"   # field-seperator to 
           IFS="|"
-          for ep in ${{ env.ep_list }}; do
+          shellist="${{ env.ep_list }}"
+          for ep in ${shellist}; do
             echo ${ep}
             filename=`basename ${ep} .xsd`
             echo "Creating html: ${filename} "
