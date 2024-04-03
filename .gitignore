@@ -1,3 +1,4 @@
 /venv/
 arelle.log
 PAT.token
+/scripts/config.sh
