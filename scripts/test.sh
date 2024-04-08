@@ -74,7 +74,7 @@ mkdir -p tmp
 cd tmp || exit 1
 
 echo "Cloning ${repository} with branch: ${branch}"
-git clone --branch "${branch} ${repository}"
+git clone --branch "${branch}" "${repository}"
 cd "${repo_name}" || exit 1
 echo "=+="
 echo "Creating taxonomy package"
