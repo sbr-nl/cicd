@@ -1,1 +1,1 @@
-local_taxonomy_dir="${HOME}/develop/taxonomies/"
+local_taxonomy_dir="${HOME}/develop/taxonomies"
