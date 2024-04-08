@@ -1,9 +1,6 @@
 <h2>{{root}}</h2>
 
 <ul>
-    {% for dir in dirs %}
-        <strong>{{dir}}</strong>
-    {% endfor %}
     {% for file in files -%}
         <li><a href="{{root}}/{{file}}">{{root}}/{{file}}</a></li>
     {% endfor %}

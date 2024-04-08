@@ -29,7 +29,7 @@ class HTMLIndex:
             if len(files) == 0:
                 continue
             root = root.replace(f"{self.directory}/", "")
-            output += template.render({"root": root, "dirs": dirs, "files": files})
+            output += template.render({"root": root, "dirs": dirs, "files": sorted(files)})
         return output
 
 

@@ -57,7 +57,7 @@ jobs:
           ref: ${{ github.event.inputs.branch }}
 
       - run: |
-          mkdir -p public/taxonomies/${{ github.event.inputs.branch }}
+          mkdir -p public/taxonomies/${{ github.event.inputs.branch }}/views
       - name: remove old package (if any)
         continue-on-error: true
         run: |
@@ -121,13 +121,12 @@ jobs:
             filename=`basename ${ep} .xsd`
             echo "Creating html: ${filename} "
             arelleCmdLine --packages "${{ env.package_list }}" --file "${ep}" \
-                          --pre="public/taxonomies/${{ github.event.inputs.branch }}/pre_${filename}-nl.html" \
-                          --dim="public/taxonomies/${{ github.event.inputs.branch }}/dim_${filename}-nl.html" \
+                          --pre="public/taxonomies/${{ github.event.inputs.branch }}/views/${filename}-presentation-nl.html" \
+                          --dim="public/taxonomies/${{ github.event.inputs.branch }}/views/${filename}-dimensions-nl.html" \
                           --labelLang=nl
-            git add public/taxonomies/${{ github.event.inputs.branch }}/*.html
+            git add public/taxonomies/${{ github.event.inputs.branch }}/views/*.html
           done
           IFS="$IFS_SAVE"
-          ls -l public/taxonomies/${{ github.event.inputs.branch }}/*html
 
       - name: Create html-index
         run: |
