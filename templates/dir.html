@@ -1,4 +1,14 @@
 <h2>{{root}}</h2>
+{% if "views" in root %}
+    <p>In de views directory staan 'leesbare' html bestanden die inzicht bieden in
+        de dimensionele- en presentatie-hierarchie. Deze bestanden zijn gebaseerd op
+        de verschillende entrypoints die in de taxonomy-packages zijn gedefinieerd.
+    </p>
+{% else %}
+    <p>De zip-bestanden zijn taxonomy-packages die met xbrl software,
+        zoals <a href="https://arelle.org/" title="Arelle, open source XBRL software">Arelle</a>,
+        ingelezen kunnen worden</p>
+{% endif %}
 
 <ul>
     {% for file in files -%}
