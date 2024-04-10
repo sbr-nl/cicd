@@ -83,7 +83,7 @@ jobs:
 
       - id: taxtest
         run: |
-          arelleCmdLine --packages "${{ env.package_list }}"  --validate --file "${{ env.ep_list }}" --logLevel=warning 
+          arelleCmdLine --packages "${{ env.package_list }}"  --validate --file "${{ env.ep_list }}" --logLevel=warning --logFile arelle.log --logLevelFilter=!.*message
 
       - id: check_arelle
         name: Check for errors while testing the taxonomy
@@ -95,6 +95,8 @@ jobs:
         if: failure()
         run: |
           echo "I'm sorry Dave, I'm afraid I can't do that."
+          cat arelle.log
+          echo "<====>"
       - run: |
           rm arelle.log
 
