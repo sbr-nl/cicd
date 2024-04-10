@@ -83,8 +83,7 @@ jobs:
 
       - id: taxtest
         run: |
-          arelleCmdLine --packages "${{ env.package_list }}"  --validate --file "${{ env.ep_list }}" --logLevel=warning | \
-          grep -vE "\[message:|\[\] Formula xpath2" > arelle.log
+          arelleCmdLine --packages "${{ env.package_list }}"  --validate --file "${{ env.ep_list }}" --logLevel=warning | grep -vE "\[message:|\[\] Formula xpath2" > arelle.log
 
       - id: check_arelle
         name: Check for errors while testing the taxonomy
