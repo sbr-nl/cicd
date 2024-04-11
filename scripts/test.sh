@@ -105,7 +105,7 @@ echo "=-="
 echo "Testing entrypoint(s): ${ep}"
 echo "With packages: ${packages}"
 echo ""
-arelleCmdLine --packages "${packages}"  --validate --file "${ep}"
+arelleCmdLine --packages "${packages}"  --validate --file "${ep}" --logLevel=warning --logLevelFilter=!.*message
 
 # Create html of the presentation and dimensional linkbases
 IFS_SAVE="$IFS"   # field-seperator to |
