@@ -139,7 +139,7 @@ jobs:
       # normally you can't trigger workflows from worflow (commits) with the default github.token
       - name: Commit files
         run: |
-            git commit -a -m "Add changes to taxonomy packages"
+            git commit -a -m "${{ github.event.inputs.message }}" -m "" -m "Add changes to taxonomy package: ${{ github.event.inputs.taxonomy_name }}"
 
       - name: Push changes
         uses: ad-m/github-push-action@master
