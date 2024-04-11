@@ -62,7 +62,7 @@ repository="${local_taxonomy_dir}/${repo_name}"
 domain="jenv"
 
 
-mkdir -p public/taxonomies/${branch} # just to be sure
+mkdir -p public/taxonomies/${branch}/views # just to be sure
 mkdir -p local-test/taxonomies/${branch} # just to be sure
 
 # remove package which we will rebuild
@@ -71,38 +71,39 @@ rm local-test/taxonomies/${branch}/${taxonomy_name}.zip # 2>/dev/null
 
 # create a new taxonomy package for given taxonomy
 mkdir -p tmp
-cd tmp
+cd tmp || exit 1
 
 echo "Cloning ${repository} with branch: ${branch}"
-git clone --branch $branch $repository
-cd ${repo_name}
+git clone --branch "${branch}" "${repository}"
+cd "${repo_name}" || exit 1
 echo "=+="
 echo "Creating taxonomy package"
-zip -r ../../local-test/taxonomies/${branch}/${taxonomy_name} ${taxonomy_name}
+zip -r ../../local-test/taxonomies/"${branch}"/"${taxonomy_name}" "${taxonomy_name}"
 cd ../..  # get back to where you once belonged
 
 # Als wij de eerste zijn die dit package maken, zet het in git.
 if test ! -f "public/taxonomies/${branch}/${taxonomy_name}.zip"; then
   echo adding new taxonomy package to this repository
-  cp local-test/taxonomies/${branch}/${taxonomy_name}.zip public/taxonomies/${branch}/
-  git add public/taxonomies/${branch}/
+  cp local-test/taxonomies/"${branch}"/"${taxonomy_name}".zip public/taxonomies/"${branch}"/
+  git add public/taxonomies/"${branch}"/
   git commit -m "New taxonomy package in branch ${branch}"
 fi
-python ./scripts/html_index.py > public/index.html
+
 echo ""
 echo "=-="
 echo "gather entrypoints from the requested taxonomy"
 echo "see which other taxonomies can be loaded"
 echo "find test instances"
 
-ep=`python ./scripts/find_entrypoints.py tmp/${repo_name}/${taxonomy_name}`
-packages=`python ./scripts/find_packages.py local-test/taxonomies/${branch}`
-instances=`python ./scripts/find_instances.py tmp/${repo_name}/instances`
+# shellcheck disable=SC2006
+ep=$(python ./scripts/find_entrypoints.py tmp/"${repo_name}"/"${taxonomy_name}")
+packages=$(python ./scripts/find_packages.py local-test/taxonomies/"${branch}")
+instances=$(python ./scripts/find_instances.py tmp/"${repo_name}"/instances)
 
 echo ""
 echo "=-="
 echo "Testing entrypoint(s): ${ep}"
-echo With packages: ${packages}
+echo "With packages: ${packages}"
 echo ""
 arelleCmdLine --packages "${packages}"  --validate --file "${ep}" --logLevel=warning --logLevelFilter=!.*message
 
@@ -110,12 +111,12 @@ arelleCmdLine --packages "${packages}"  --validate --file "${ep}" --logLevel=war
 IFS_SAVE="$IFS"   # field-seperator to |
 IFS='|'
 for ep_ in $ep; do
-    filename=`basename ${ep_} .xsd`
+    filename=$(basename "${ep_}" .xsd)
     echo "=-="
     echo "Creating html: ${filename} "
     arelleCmdLine --packages "${packages}" --file "${ep_}" \
-                  --pre="public/taxonomies/${branch}/pre_${filename}-nl.html" \
-                  --dim="public/taxonomies/${branch}/dim_${filename}-nl.html" \
+                  --pre="public/taxonomies/${branch}/views/${filename}-presentation-nl.html" \
+                  --dim="public/taxonomies/${branch}/views/${filename}-dimensions-nl.html" \
                   --labelLang=nl
 done
 IFS="$IFS_SAVE"
@@ -125,12 +126,15 @@ if test ! "${instances}" == ""; then
   echo ""
   echo "=-="
   echo "Testing instance(s): ${instances}"
-  echo With packages: ${packages}
+  echo "With packages: ${packages}"
   echo ""
   arelleCmdLine --packages "${packages}"  --validate --file "${instances}"
 else
   echo No instances to be tested. Goodbye
 fi
+
+python ./scripts/html_index.py > public/index.html
+
 echo ""
 echo "=-="
 echo "Cleaning up the mess"

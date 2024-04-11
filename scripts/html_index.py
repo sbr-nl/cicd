@@ -12,19 +12,25 @@ class HTMLIndex:
 
     def render_html(self):
         indextemplate = env.get_template("index.html")
-        template = env.get_template("dir.html")
-
         index = indextemplate.render()
+        output = self.os_walk()
+        result = index.replace("@@@", output)
+        print(result)  # just catch this and write to disk
+
+    def scandir(self):
+        pass
+
+    def os_walk(self):
+        template = env.get_template("dir.html")
         output = ""
-        for root, dirs, files in os.walk(self.directory):
+        for root, dirs, files in sorted(os.walk(self.directory)):
             if root.endswith(self.directory):
                 continue
             if len(files) == 0:
                 continue
             root = root.replace(f"{self.directory}/", "")
-            output += template.render({"root": root, "dirs": dirs, "files": files})
-        result = index.replace("@@@", output)
-        print(result)  # just catch this and write to disk
+            output += template.render({"root": root, "dirs": dirs, "files": sorted(files)})
+        return output
 
 
 def main():
