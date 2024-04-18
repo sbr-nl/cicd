@@ -9,6 +9,10 @@ if test ! -f ./scripts/config.sh; then
   exit
 fi
 source ./scripts/config.sh
+if [ "${local_instance_dir}" == "" ]; then
+  echo "Geef een waarde voor "local_instance_dir" op in config.sh"
+  exit
+fi
 
 while [ $# -gt 0 ]; do
   case "$1" in
