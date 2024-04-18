@@ -1,0 +1,46 @@
+name: iXBRL-examples build
+
+on:
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: branch name to deploy to (_this_ repo) defaults to 'main'
+        default: main
+        required: true
+      repository:
+        description: repository name which triggered this event (taxonomy default 'xiffy/kvk-ixbrl-voorbeelden')
+        required: true
+        default: xiffy/kvk-ixbrl-voorbeelden
+      message:
+        description: Message to use when we commit taxonomy packages to this repository.
+        required: false
+        default: "Manually started workflow."
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout self
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.inputs.branch }}
+      - name: configure Git
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+
+      - name: Install Arelle
+        run: |
+          pip install arelle-release
+          pip install ixbrl-viewer-plugin
+      - name: Install zip
+        run: |
+          sudo apt install zip
+      - name: Download taxonomy repository
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ github.event.inputs.repository }}
+          path: _reports
+          ref: ${{ github.event.inputs.branch }}
+      - name create example dir run: |
+          mkdir -p public/voorbeelden/${{ github.event.inputs.branch }}/views

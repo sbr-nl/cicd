@@ -63,13 +63,13 @@ repo_name="${repo_name:-kvk-ixbrl-voorbeelden}"
 repository="${local_instance_dir}/${repo_name}"
 report_name="${report_name:-}"
 
-mkdir -p public/instances/"${branch}"/views
+mkdir -p public/voorbeelden/"${branch}"/views
 
 # Create and fill a temporary directory where we will perform the (integratiion) tests
 mkdir -p local-test/taxonomies/${branch}
-mkdir -p local-test/instances/${branch}/views
+mkdir -p local-test/voorbeelden/${branch}/views
 cp -rup public/taxonomies/${branch} local-test/taxonomies/
-rm -rf local-test/instances/"${branch}"/*zip  # Create, don't update!
+rm -rf local-test/voorbeelden/"${branch}"/*zip  # Create, don't update!
 
 mkdir -p tmp
 cd tmp || exit 1
@@ -85,7 +85,7 @@ for dir in */
 do
   dir=${dir%*/}      # remove the trailing "/"
   echo "  - ${dir}.zip"
-  zip -rq ../../local-test/instances/"${branch}"/"${dir}" "${dir}"
+  zip -rq ../../local-test/voorbeelden/"${branch}"/"${dir}" "${dir}"
 done
 echo ""
 
@@ -93,7 +93,7 @@ cd ../..
 
 packages=$(python ./scripts/find_packages.py local-test/taxonomies/"${branch}")
 
-for report in local-test/instances/"${branch}"/*zip
+for report in local-test/voorbeelden/"${branch}"/*zip
 do
   if [ "${report_name}" == "" ] || [[ "${report}" =~ ${report_name} ]] ; then
     echo "${report} (${report_name})"
@@ -112,15 +112,15 @@ do
       zipname=$(basename "${report}")
       file=$(basename "${report}" .zip)
       echo "Looks good! 'publishing' ${zipname}"
-      cp "${report}" "public/instances/${branch}/"
+      cp "${report}" "public/voorbeelden/${branch}/"
       echo "Creating iXBRL inline view"
-      rm public/instances/"${branch}"/views/"${file}"_viewer.html 2>/dev/null
+      rm public/voorbeelden/"${branch}"/views/"${file}"_viewer.html 2>/dev/null
       arelleCmdLine --packages "${packages}" \
                     --file "${report}" \
                     --plugins iXBRLViewerPlugin \
-                    --save-viewer public/instances/"${branch}"/views/"${file}"_viewer.html \
+                    --save-viewer public/voorbeelden/"${branch}"/views/"${file}"_viewer.html \
                     --viewer-url https://github.com/Arelle/ixbrl-viewer/releases/download/1.4.22/ixbrlviewer.js
-      if [ -s public/instances/"${branch}"/views/"${file}"_viewer.html ]; then
+      if [ -s public/voorbeelden/"${branch}"/views/"${file}"_viewer.html ]; then
         echo "Created inline viewer for ${file}"
       else
         echo "No inline view created"
