@@ -7,3 +7,5 @@
 # hier geef je aan welke. (${HOME} vertaalt zich als /home/<gebruikersnaam>)
 
 local_taxonomy_dir="${HOME}/develop/taxoos"
+local_instance_dir="${HOME}/develop/instances"
+
