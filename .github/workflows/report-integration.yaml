@@ -89,12 +89,14 @@ jobs:
             arelleCmdLine --packages "${{ env.package_list }}"  --validate --file "${report}" --logLevelFilter=!.*message --logLevel=warning --logFile=arelle.log
             if [ -s arelle.log ]; then
               echo "Houston we have a problem."
-#              echo "not publishin reportpackage."
-#              rm "${report}"
+              echo "not publishin reportpackage."
+              rm "${report}"
             else
               zipname=$(basename "${report}")
               file=$(basename "${report}" .zip)
               echo "Looks good! 'publishing' ${zipname}"
+            fi
+          done
 #              echo "Creating iXBRL inline view"
 #              rm public/voorbeelden/"${{ github.event.inputs.branch }}"/views/"${file}"_viewer.html 2>/dev/null
 #              arelleCmdLine --packages "${{ env.package_list }}" \
@@ -107,8 +109,6 @@ jobs:
 #              else
 #                echo "No inline view created"
 #              fi
-            fi
-          done
 
       - name: Create html-index
         run: |
