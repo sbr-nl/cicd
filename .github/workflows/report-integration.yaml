@@ -40,7 +40,26 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: ${{ github.event.inputs.repository }}
-          path: _reports
+          path: _vb
           ref: ${{ github.event.inputs.branch }}
-      - name create example dir run: |
+      - name: create example dir
+        run: |
           mkdir -p public/voorbeelden/${{ github.event.inputs.branch }}/views
+
+      - name: Remove old report packages
+        run: |
+          rm public/voorbeelden/${{ github.event.inputs.branch }}/*zip
+      - name: Build report-packages
+        run: |
+          cd _vb
+          for dir in */
+          do
+            dir=${dir%*/}      # remove the trailing "/"
+            echo "  - ${dir}.zip"
+            zip -r ../public/voorbeelden/${{ github.event.inputs.branch }}/"${dir}" "${dir}"
+          done
+          echo ""
+          cd ..
+          ls -l public/voorbeelden/${{ github.event.inputs.branch }}/
+        continue-on-error: true
+

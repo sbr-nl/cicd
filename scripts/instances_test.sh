@@ -80,7 +80,7 @@ git clone --branch "${branch}" "${repository}"
 cd "${repo_name}" || exit 1
 echo "=+="
 echo "Creating reportpackages:"
-count=0
+
 for dir in */
 do
   dir=${dir%*/}      # remove the trailing "/"
