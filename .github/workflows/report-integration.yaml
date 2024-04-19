@@ -35,7 +35,7 @@ jobs:
       - name: Install Arelle
         run: |
           pip install arelle-release
-          pip install ixbrl-viewer-plugin
+          pip install ixbrl-viewer
       - name: Install zip
         run: |
           sudo apt install zip
