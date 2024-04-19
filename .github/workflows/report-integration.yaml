@@ -122,6 +122,7 @@ jobs:
 
       - name: Commit files
         run: |
+            git add public/voorbeelden/${{ github.event.inputs.branch }}/
             git commit -a -m "${{ github.event.inputs.message }}" \
             -m "" -m "Add changes to examples and viewers: ${{ github.event.inputs.repository }}"
 
