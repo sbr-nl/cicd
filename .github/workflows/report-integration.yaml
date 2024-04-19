@@ -1,9 +1,6 @@
 name: iXBRL-examples build
 
 on:
-  push:
-    branches:
-      - reports
   workflow_dispatch:
     inputs:
       branch:
@@ -31,6 +28,14 @@ jobs:
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
+
+      - run: |
+          echo ${{ github.actor }} Started an integration run.
+          echo They pushed to ${{ github.event.inputs.repository }}
+      - run: |
+          echo ${{ github.event.inputs.branch }}
+          echo "the message is: ${{ github.event.inputs.message }}"
+          echo run-id: ${{ github.event.inputs.run_id }}
 
       - name: Install Arelle
         run: |
