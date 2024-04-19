@@ -133,6 +133,9 @@ do
 done
 # Create html-index of 'public/'
 python ./scripts/html_index.py > public/index.html
+git add public/voorbeelden/"${branch}"/
+git add public/index.html
+git commit -m "(Op)Nieuw gegenereerde report packages in voorbeelden) ${branch}"
 
 echo ""
 echo "=-="

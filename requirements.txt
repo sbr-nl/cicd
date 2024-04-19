@@ -2,7 +2,7 @@ arelle-release
 certifi
 et-xmlfile
 isodate
-ixbrl-viewer-plugin
+ixbrl-viewer
 lxml
 numpy
 openpyxl
