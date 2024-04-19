@@ -4,8 +4,8 @@ on:
   workflow_dispatch:
     inputs:
       branch:
-        description: branch name to deploy to (_this_ repo) defaults to 'main'
-        default: main
+        description: branch name to deploy to (_this_ repo) defaults to 'report'
+        default: report
         required: true
       repository:
         description: repository name which triggered this event (taxonomy default 'xiffy/kvk-ixbrl-voorbeelden')
