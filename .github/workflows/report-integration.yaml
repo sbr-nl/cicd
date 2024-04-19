@@ -56,7 +56,9 @@ jobs:
 
       - name: Remove old report packages
         run: |
-          rm public/voorbeelden/${{ github.event.inputs.branch }}/*zip
+          rm public/voorbeelden/${{ github.event.inputs.branch }}/*zip 2>/dev/null
+        continue-on-error: true
+
       - name: Build report-packages
         run: |
           cd _vb
