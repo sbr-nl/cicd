@@ -96,22 +96,22 @@ jobs:
               zipname=$(basename "${report}")
               file=$(basename "${report}" .zip)
               echo "Looks good! 'publishing' ${zipname}"
+              echo "Creating iXBRL inline view"
+              rm public/voorbeelden/${{ github.event.inputs.branch }}/views/"${file}"_viewer.html 2>/dev/null
+              arelleCmdLine --packages "${{ env.package_list }}" \
+                            --file "${report}" \
+                            --plugins iXBRLViewerPlugin \
+                            --save-viewer public/voorbeelden/${{ github.event.inputs.branch }}/views/"${file}"_viewer.html \
+                            --viewer-url https://github.com/Arelle/ixbrl-viewer/releases/download/1.4.22/ixbrlviewer.js
+              if [ -s public/voorbeelden/${{ github.event.inputs.branch }}/views/"${file}"_viewer.html ]; then
+                echo "Created inline view for ${file}"
+              else
+                echo "No inline view created"
+              fi
             fi
           done
           ls -l public/voorbeelden/${{ github.event.inputs.branch }}/
           ls -l public/voorbeelden/${{ github.event.inputs.branch }}/views/
-#              echo "Creating iXBRL inline view"
-#              rm public/voorbeelden/"${{ github.event.inputs.branch }}"/views/"${file}"_viewer.html 2>/dev/null
-#              arelleCmdLine --packages "${{ env.package_list }}" \
-#                            --file "${report}" \
-#                            --plugins iXBRLViewerPlugin \
-#                            --save-viewer public/voorbeelden/"${branch}"/views/"${file}"_viewer.html \
-#                            --viewer-url https://github.com/Arelle/ixbrl-viewer/releases/download/1.4.22/ixbrlviewer.js
-#              if [ -s public/voorbeelden/"${branch}"/views/"${file}"_viewer.html ]; then
-#                echo "Created inline viewer for ${file}"
-#              else
-#                echo "No inline view created"
-#              fi
 
       - name: Create html-index
         run: |
