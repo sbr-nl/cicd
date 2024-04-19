@@ -118,7 +118,6 @@ jobs:
       - name: Create html-index
         run: |
           python scripts/html_index.py > public/index.html
-          cat public/index.html
 
       - name: Commit files
         run: |
