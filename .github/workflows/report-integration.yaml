@@ -80,7 +80,7 @@ jobs:
 
       - name: Test Report-packages
         run: |
-          for report in public/voorbeelden/"${{ github.event.inputs.branch }}"/*zip
+          for report in public/voorbeelden/${{ github.event.inputs.branch }}/*zip
           do
             rm arellog.log 2>/dev/null
             arelleCmdLine --packages "${{ env.package_list }}"  --validate --file "${report}" --logLevelFilter=!.*message --logLevel=warning --logFile=arelle.log
