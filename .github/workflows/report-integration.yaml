@@ -44,7 +44,7 @@ jobs:
       - name: Install zip
         run: |
           sudo apt-get install zip
-      - name: Download taxonomy repository
+      - name: Download iXBRL examples repository
         uses: actions/checkout@v4
         with:
           repository: ${{ github.event.inputs.repository }}
@@ -70,7 +70,7 @@ jobs:
           done
           echo ""
           cd ..
-          ls -l public/voorbeelden/${{ github.event.inputs.branch }}/
+          # ls -l public/voorbeelden/${{ github.event.inputs.branch }}/
         continue-on-error: true
 
       - id: packagelist
@@ -83,14 +83,14 @@ jobs:
         run: |
           for report in public/voorbeelden/${{ github.event.inputs.branch }}/*zip
           do
-            echo "${report}"
+            # echo "${report}"
             if [ -s arelle.log ]; then
                rm arelle.log 
             fi
             arelleCmdLine --packages "${{ env.package_list }}"  --validate --file "${report}" --logLevelFilter=!.*message --logLevel=warning --logFile=arelle.log
             if [ -s arelle.log ]; then
               echo "Houston we have a problem."
-              echo "not publishin reportpackage."
+              echo "not publishin report-package."
               rm "${report}"
             else
               zipname=$(basename "${report}")
@@ -112,24 +112,24 @@ jobs:
               fi
             fi
           done
-          ls -l public/voorbeelden/${{ github.event.inputs.branch }}/
-          ls -l public/voorbeelden/${{ github.event.inputs.branch }}/views/
+          # ls -l public/voorbeelden/${{ github.event.inputs.branch }}/
+          # ls -l public/voorbeelden/${{ github.event.inputs.branch }}/views/
 
       - name: Create html-index
         run: |
           python scripts/html_index.py > public/index.html
           cat public/index.html
 
-#      - name: Commit files
-#        run: |
-#            git commit -a -m "${{ github.event.inputs.message }}" \
-#            -m "" -m "Add changes to examples and viewers: ${{ github.event.inputs.repository }}"
-#
-#      - name: Push changes
-#        uses: ad-m/github-push-action@master
-#        with:
-#          github_token: ${{ secrets.PAT }}
+      - name: Commit files
+        run: |
+            git commit -a -m "${{ github.event.inputs.message }}" \
+            -m "" -m "Add changes to examples and viewers: ${{ github.event.inputs.repository }}"
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.PAT }}
 
       - name: Ping Deployment
         run: |
-          echo "Activate commit, and now you should ping the deployment of the website"
+          echo "And now you should ping the deployment of the website"
