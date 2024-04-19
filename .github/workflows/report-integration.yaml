@@ -97,7 +97,9 @@ jobs:
               file=$(basename "${report}" .zip)
               echo "Looks good! 'publishing' ${zipname}"
               echo "Creating iXBRL inline view"
-              rm public/voorbeelden/${{ github.event.inputs.branch }}/views/"${file}"_viewer.html 2>/dev/null
+              if [ -s public/voorbeelden/${{ github.event.inputs.branch }}/views/"${file}"_viewer.html ]; then
+                rm public/voorbeelden/${{ github.event.inputs.branch }}/views/"${file}"_viewer.html 2>/dev/null
+              fi              
               arelleCmdLine --packages "${{ env.package_list }}" \
                             --file "${report}" \
                             --plugins iXBRLViewerPlugin \
