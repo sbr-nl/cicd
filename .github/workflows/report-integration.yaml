@@ -4,8 +4,8 @@ on:
   workflow_dispatch:
     inputs:
       branch:
-        description: branch name to deploy to (_this_ repo) defaults to 'report'
-        default: report
+        description: branch name to deploy to (_this_ repo) defaults to 'reports'
+        default: reports
         required: true
       repository:
         description: repository name which triggered this event (taxonomy default 'xiffy/kvk-ixbrl-voorbeelden')
@@ -66,7 +66,7 @@ jobs:
           do
             dir=${dir%*/}      # remove the trailing "/"
             echo "  - ${dir}.zip"
-            zip -r ../public/voorbeelden/${{ github.event.inputs.branch }}/"${dir}" "${dir}"
+            zip -rq ../public/voorbeelden/${{ github.event.inputs.branch }}/"${dir}" "${dir}"
           done
           echo ""
           cd ..
@@ -80,7 +80,7 @@ jobs:
 
       - name: Test Report-packages
         run: |
-          for report in public/voorbeelden/"${branch}"/*zip
+          for report in public/voorbeelden/"${{ github.event.inputs.branch }}"/*zip
           do
             rm arellog.log 2>/dev/null
             arelleCmdLine --packages "${{ env.package_list }}"  --validate --file "${report}" --logLevelFilter=!.*message --logLevel=warning --logFile=arelle.log
