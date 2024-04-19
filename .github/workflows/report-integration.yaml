@@ -43,7 +43,7 @@ jobs:
           pip install ixbrl-viewer
       - name: Install zip
         run: |
-          sudo apt install zip
+          sudo apt-get install zip
       - name: Download taxonomy repository
         uses: actions/checkout@v4
         with:
