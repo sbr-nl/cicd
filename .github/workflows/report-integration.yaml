@@ -1,6 +1,9 @@
 name: iXBRL-examples build
 
 on:
+  push:
+    branches:
+      - reports
   workflow_dispatch:
     inputs:
       branch:
