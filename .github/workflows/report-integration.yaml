@@ -8,9 +8,9 @@ on:
         default: reports
         required: true
       repository:
-        description: repository name which triggered this event (taxonomy default 'xiffy/kvk-ixbrl-voorbeelden')
+        description: repository name which triggered this event (taxonomy default 'sbr-nl/kvk-ixbrl-voorbeelden')
         required: true
-        default: xiffy/kvk-ixbrl-voorbeelden
+        default: sbr-nl/kvk-ixbrl-voorbeelden
       message:
         description: Message to use when we commit taxonomy packages to this repository.
         required: false
