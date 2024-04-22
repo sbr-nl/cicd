@@ -82,15 +82,15 @@ jobs:
         run: |
           for report in public/voorbeelden/${{ github.event.inputs.branch }}/*zip
           do
-            # echo "${report}"
             if [ -s arelle.log ]; then
                rm arelle.log 
             fi
             arelleCmdLine --packages "${{ env.package_list }}"  --validate --file "${report}" --logLevelFilter=!.*message --logLevel=warning --logFile=arelle.log
             if [ -s arelle.log ]; then
               echo "Houston we have a problem."
-              echo "not publishin report-package."
+              echo "not publishin report-package. ${report}"
               rm "${report}"
+              cat arelle.log
             else
               zipname=$(basename "${report}")
               file=$(basename "${report}" .zip)
