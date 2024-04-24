@@ -65,10 +65,10 @@ report_name="${report_name:-}"
 
 mkdir -p public/voorbeelden/"${branch}"/views
 
-# Create and fill a temporary directory where we will perform the (integratiion) tests
-mkdir -p local-test/taxonomies/${branch}
-mkdir -p local-test/voorbeelden/${branch}/views
-cp -rup public/taxonomies/${branch} local-test/taxonomies/
+# Create and fill a temporary directory where we will perform the (integration) tests
+mkdir -p local-test/taxonomies/"${branch}"
+mkdir -p local-test/voorbeelden/"${branch}"/views
+cp -rup public/taxonomies/"${branch}" local-test/taxonomies/
 rm -rf local-test/voorbeelden/"${branch}"/*zip  # Create, don't update!
 
 mkdir -p tmp
@@ -79,7 +79,7 @@ rm -rf "${repo_name}"
 git clone --branch "${branch}" "${repository}"
 cd "${repo_name}" || exit 1
 echo "=+="
-echo "Creating reportpackages:"
+echo "Creating Report-packages:"
 
 for dir in */
 do
