@@ -47,7 +47,7 @@ jobs:
         run: |
           pip install arelle-release
       - run: |
-          sudo apt install zip
+          sudo apt-get install zip
 
       - name: Download taxonomy repository
         uses: actions/checkout@v4
@@ -145,6 +145,7 @@ jobs:
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.PAT }}
+          branch: ${{ github.ref }}
 
     # Well that won't trigger the deployment as well.
     # Last resort, ping self?
