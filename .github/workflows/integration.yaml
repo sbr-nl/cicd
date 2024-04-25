@@ -8,7 +8,7 @@ on:
         default: main
         required: true
       repository:
-        description: repository name which triggered this event (taxonomy default 'xiffy/jenv-taxonomie')
+        description: repository name which triggered this event (taxonomy default 'sbr-nl/jenv-taxonomie')
         required: true
         default: sbr-nl/jenv-taxonomie
       taxonomy_name:

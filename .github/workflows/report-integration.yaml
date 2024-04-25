@@ -103,7 +103,7 @@ jobs:
                             --file "${report}" \
                             --plugins iXBRLViewerPlugin \
                             --save-viewer public/voorbeelden/${{ github.event.inputs.branch }}/views/"${file}"_viewer.html \
-                            --viewer-url https://github.com/xiffy/ixbrl-viewer/releases/download/main/ixbrlviewer.js
+                            --viewer-url https://github.com/sbr-nl/ixbrl-viewer/releases/download/main/ixbrlviewer.js
               if [ -s public/voorbeelden/${{ github.event.inputs.branch }}/views/"${file}"_viewer.html ]; then
                 echo "Created inline view for ${file}"
               else
