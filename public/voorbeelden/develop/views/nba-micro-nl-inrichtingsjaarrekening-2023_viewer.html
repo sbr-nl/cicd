@@ -9,7 +9,6 @@
       html {
         font-size: 10pt !important;
       }
-
       .page {
         padding: 0 !important;
         margin: 0 auto !important;
@@ -19,20 +18,17 @@
         min-width: auto !important;
       }
     }
-
     html {
       font-family: Georgia, "Times New Roman", Times, serif;
       background-color: #fff;
       font-size: 14.5px;
     }
-
     body {
       counter-reset: page h2 h3 h4 h5;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
     }
-
     /* page layout */
     .page {
       min-width: 21cm;
@@ -50,45 +46,37 @@
       overflow: auto;
       border-radius: 6px;
     }
-
     .page:not(:last-child) {
       page-break-after: always;
     }
-
     .page::-webkit-scrollbar {
       background-color: red;
       width: 10px;
       border-top-right-radius: 6px;
       border-bottom-right-radius: 6px;
     }
-
     /* page content layout */
     .header-content,
     .footer-content,
     .content {
       padding-left: 1rem;
     }
-
     .header-content,
     .footer-content {
       padding-left: 1rem;
     }
-
     .header-content {
       padding-bottom: 2rem;
     }
-
     .content {
       flex: 1;
     }
-
     /* header and footer */
     .header-line {
       height: 1rem;
       border-top: solid 1px black;
       border-left: solid 1px black;
     }
-
     .header,
     .footer {
       font-style: italic;
@@ -96,58 +84,47 @@
       text-align: left;
       background-color: white;
     }
-
     .footer {
       display: flex;
       justify-content: space-between;
     }
-
     .page:nth-child(n+3) .footer-page-number::after {
-      content: "Pagina " counter(page) " van 7";
+      content: "Pagina " counter(page) " van 166";
     }
-
     .footer-content::after {
-      content: "De Micro B.V., Statutaire vestigingsplaats";
+      content: "De Grote B.V., Statutaire vestigingsplaats";
     }
-
     .header-content::after {
-      content: "Samenstellingsverklaring afgegeven d.d. ... 2024";
+      content: "Controleverklaring afgegeven d.d. ... 2024";
     }
-
     /* hidden */
     .hidden {
       display: none;
     }
-
     /* horizontal rules */
     hr {
       border-style: solid none none;
       border-color: black;
       border-width: 1px;
     }
-
     /* first page */
     .first-page-title,
     .first-page-subtitle {
       font-size: 2rem;
     }
-
     .first-page-title {
       font-weight: bold;
       font-style: italic;
     }
-
     .first-page-subtitle {
       font-weight: normal;
     }
-
     /* paragraphs */
     p {
       white-space: pre-line;
       margin-top: .5rem;
       margin-bottom: .5rem;
     }
-
     /* chapters */
     h1,
     h2,
@@ -157,56 +134,45 @@
       margin-top: .75rem;
       margin-bottom: .5rem;
     }
-
     table h2,
     table h3 {
       margin: 0;
     }
-
     h1 {
       font-size: 1.6rem;
     }
-
     h2,
     h3 {
       font-size: 1.2rem;
     }
-
     h4 {
       font-size: 1rem;
     }
-
     h5 {
       font-size: 1rem;
     }
-
     table h2,
     table h3 {
       font-size: 1rem;
     }
-
     table.vertical-headers tbody:first-of-type td:nth-child(n+2) h2 {
       writing-mode: vertical-rl;
       rotate: 180deg;
       text-align: left;
     }
-
     table.vertical-headers tbody:first-of-type td:nth-child(n+2) {
       text-align: -webkit-right;
       padding-right: 0.3rem;
       max-height: 125px;
     }
-
     h3,
     h4,
     h5 {
       font-weight: normal;
     }
-
     h2 {
       font-weight: bold;
     }
-
     h1,
     h2,
     h3,
@@ -214,43 +180,34 @@
     h5 {
       font-style: italic;
     }
-
     /* chapter numbering */
     h2:not(table h2) {
       counter-increment: h2;
       counter-set: h3 h4 h5;
     }
-
     h2:not(table h2)::before {
       content: counter(h2) ". ";
     }
-
     h3:not(table h3) {
       counter-increment: h3;
       counter-set: h4 h5;
     }
-
     h3:not(table h3)::before {
       content: counter(h2) "." counter(h3) ". ";
     }
-
     h4:not(table h4) {
       counter-increment: h4;
       counter-set: h5;
     }
-
     h4:not(table h4)::before {
       content: counter(h2) "." counter(h3) "." counter(h4) ". ";
     }
-
     h5:not(table h5) {
       counter-increment: h5;
     }
-
     h5:not(table h5)::before {
       content: counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) ". ";
     }
-
     /* table layout */
     table {
       margin-bottom: 1rem;
@@ -258,203 +215,178 @@
       text-align: right;
       table-layout: fixed;
     }
-
     .table-xs {
       width: 40%;
     }
-
     .table-s {
       width: 55%;
     }
-
     .table-m {
       width: 70%;
     }
-
     .table-l {
       width: 85%;
     }
-
     .table-full {
       width: 100%;
     }
-
     .text-left {
       text-align: left;
     }
-
     td {
       vertical-align: bottom;
     }
-
     table,
     th,
     td {
       border-collapse: collapse;
       font-size: 1rem;
     }
-
     .top-table-header hr,
     .sub-total hr,
     .total hr {
       border-style: solid none none;
       border-color: black;
     }
-
     .dotted hr {
       border-style: dotted none none;
       border-color: black;
     }
-
     .top-table-header hr,
     .sub-total hr,
     .dotted hr {
       border-width: 1px;
     }
-
     .total hr {
       border-width: 2px;
       border-color: black;
     }
-
     tr.empty-row {
       height: 1.4rem;
     }
-
     table tr> :first-child {
       text-align: left;
       font-family: Georgia, "Times New Roman", Times, serif;
     }
-
-    table.col-3xs col:nth-child(2n+2),
+    table.col-3xs:not(.annotated):not(.no-row-headers) col:nth-child(2n+2),
     table.col-3xs:is(.annotated, .no-row-headers) col:nth-child(2n+3) {
       width: 8%;
     }
-
-    table.col-2xs col:nth-child(2n+2),
+    table.col-2xs:not(.annotated):not(.no-row-headers) col:nth-child(2n+2),
     table.col-2xs:is(.annotated, .no-row-headers) col:nth-child(2n+3) {
       width: 9%;
     }
-
-    table.col-xs col:nth-child(2n+2),
+    table.col-xs:not(.annotated):not(.no-row-headers) col:nth-child(2n+2),
     table.col-xs:is(.annotated, .no-row-headers) col:nth-child(2n+3) {
       width: 10%;
     }
-
-    table.col-s col:nth-child(2n+2),
+    table.col-s:not(.annotated):not(.no-row-headers) col:nth-child(2n+2),
     table.col-s:is(.annotated, .no-row-headers) col:nth-child(2n+3) {
       width: 12.5%;
     }
-
-    table.col-m col:nth-child(2n+2),
+    table.col-m:not(.annotated):not(.no-row-headers) col:nth-child(2n+2),
     table.col-m:is(.annotated, .no-row-headers) col:nth-child(2n+3) {
       width: 15%;
     }
-
-    table.col-l col:nth-child(2n+2),
+    table.col-l:not(.annotated):not(.no-row-headers) col:nth-child(2n+2),
     table.col-l:is(.annotated, .no-row-headers) col:nth-child(2n+3) {
       width: 17.5%;
     }
-
-    table.col-xl col:nth-child(2n+2),
+    table.col-xl:not(.annotated):not(.no-row-headers) col:nth-child(2n+2),
     table.col-xl:is(.annotated, .no-row-headers) col:nth-child(2n+3) {
       width: 20%;
     }
-
     table.annotated col:nth-child(2) {
       width: 50px;
     }
-
     .annotated tr> :nth-child(2) {
       text-align: center;
       font-family: Georgia, "Times New Roman", Times, serif;
     }
-
-    table col:nth-child(2n+3),
+    table:not(.annotated):not(.no-row-headers) col:nth-child(2n+3),
     table.annotated col:nth-child(2n+4),
     table.no-row-headers col:nth-child(2n+2) {
       background-color: #ffffff;
       width: 8px;
     }
-
     table:is(.col-xs, .col-2xs, .col-3xs) col:nth-child(2n+3),
     table:is(.col-xs, .col-2xs, .col-3xs).annotated col:nth-child(2n+4),
     table:is(.col-xs, .col-2xs, .col-3xs).no-row-headers col:nth-child(2n+2) {
       background-color: #ffffff;
       width: 4px;
     }
-
     tr:not(.empty-row)>td:nth-child(2n+2) {
       padding-right: 0.5rem;
     }
-
-    tbody:nth-of-type(2)>tr:not(.empty-row)>td:nth-child(2n+2) {
+    table:not(.annotated):not(.no-column-headers) tbody:nth-of-type(2)>tr:not(.empty-row)>td:nth-child(2n+2),
+    table.annotated tbody:nth-of-type(2)>tr:not(.empty-row)>td:nth-child(2n+3),
+    table.no-column-headers tbody:nth-of-type(1)>tr:not(.empty-row)>td:nth-child(2n+2) {
       font-family: Arial, Helvetica, sans-serif;
     }
-
     .scale {
       font-size: .8rem;
     }
-
     .footnote-table {
       font-size: .9rem;
       font-style: italic;
     }
-
     /* front page */
     .title-content,
     .title-line {
       margin-left: 25%;
       padding-left: 1rem;
     }
-
     .title-line {
       height: 1rem;
       border-top: solid 1px black;
       border-left: solid 1px black;
     }
-
     .date-content,
     .date-line {
       width: 60%;
       padding-left: 1rem;
       font-style: italic;
     }
-
     .date-line {
       margin-top: 13rem;
       height: 1rem;
       border-top: dotted 1px black;
       border-left: dotted 1px black;
     }
-
     /* toc */
     .toc-h1 {
       font-weight: bold;
     }
-
     .toc-h2 {
       font-style: italic;
     }
-
     .align-right {
       float: right;
     }
-
     a {
       color: black;
       text-decoration: none;
     }
-
     /* lists */
     ol,
     ul {
       padding-left: 1.4rem;
     }
-
     .non-list-bullet {
       display: list-item;
       margin-left: 1.4rem;
+    }
+
+    .negative::before {
+      position: absolute;
+      content:"(";
+      margin-left: -5px;
+    }
+
+    .negative::after {
+      position: absolute;
+      margin-left: 0px;
+      content: ")";
     }
   </style>
 </head>
