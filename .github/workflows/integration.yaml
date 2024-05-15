@@ -18,7 +18,7 @@ on:
       message:
         description: Message to use when we commit taxonomy packages to this repository.
         required: false
-        default: "Manually started workflow."
+        default: "Dispatch started workflow."
 
 jobs:
   build:
