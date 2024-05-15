@@ -139,6 +139,7 @@ jobs:
       # normally you can't trigger workflows from worflow (commits) with the default github.token
       - name: Commit files
         run: |
+            git add public/taxonomies/${{ github.event.inputs.branch }}/${{ github.event.inputs.taxonomy_name }}.zip
             git commit -a -m "${{ github.event.inputs.message }}" -m "" -m "Add changes to taxonomy package: ${{ github.event.inputs.taxonomy_name }}"
 
       - name: Push changes
