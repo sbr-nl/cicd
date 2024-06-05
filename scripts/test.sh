@@ -67,7 +67,7 @@ mkdir -p local-test/taxonomies/${branch} # just to be sure
 
 # remove package which we will rebuild
 cp -rup public/taxonomies/${branch} local-test/taxonomies/
-rm local-test/taxonomies/${branch}/${taxonomy_name}.zip # 2>/dev/null
+rm local-test/taxonomies/${branch}/${taxonomy_name}.zip 2>/dev/null
 
 # create a new taxonomy package for given taxonomy
 mkdir -p tmp
@@ -78,7 +78,18 @@ git clone --branch "${branch}" "${repository}"
 cd "${repo_name}" || exit 1
 echo "=+="
 echo "Creating taxonomy package"
+echo `pwd`
 zip -r ../../local-test/taxonomies/"${branch}"/"${taxonomy_name}" "${taxonomy_name}"
+# 22 may 2024 add the capability to combine different-versions of taxonomies.
+if test -f "testconfig.yaml"; then
+  cd ..  # get out of the 'domain' directory
+  echo update package-versions!
+  python ../scripts/test_config.py `pwd`/"${repo_name}"/testconfig.yaml "${local_taxonomy_dir}" "${local_instance_dir}" "${branch}"
+  pwd
+  ls -l
+  cd ./"${repo_name}" || exit 1  # Hieronder gaan we rucksichtlos twee directories up.
+fi
+
 cd ../..  # get back to where you once belonged
 
 # Als wij de eerste zijn die dit package maken, zet het in git.
@@ -88,6 +99,8 @@ if test ! -f "public/taxonomies/${branch}/${taxonomy_name}.zip"; then
   git add public/taxonomies/"${branch}"/
   git commit -m "New taxonomy package in branch ${branch}"
 fi
+
+
 
 echo ""
 echo "=-="
