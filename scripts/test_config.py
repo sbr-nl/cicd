@@ -37,7 +37,7 @@ for repo in repositories["repositories"]:
     branch = repo.get("branch")
     name = repo.get("name")
     package = repo.get("package")
-    print(f"Taxonomie {name} uit branch {branch} word als {package} gegenereerd")
+    print(f"Taxonomie {name} uit branch {branch} wordt als {package} gegenereerd")
     if branch == test_branch:
         print("Skipping {name}, same branch")
         continue

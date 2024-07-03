@@ -85,8 +85,6 @@ if test -f "testconfig.yaml"; then
   cd ..  # get out of the 'domain' directory
   echo -e "\n=+=+=\n\n update package-versions!"
   python ../scripts/test_config.py `pwd`/"${repo_name}"/testconfig.yaml "${local_taxonomy_dir}" "${local_instance_dir}" "${branch}"
-  pwd  #debug
-  ls -l #debug
   cd ./"${repo_name}" || exit 1  # Hieronder gaan we rucksichtlos twee directories up.
   echo -e  "\n=+=+="
 fi
