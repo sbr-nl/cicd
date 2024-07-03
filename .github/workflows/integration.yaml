@@ -32,12 +32,13 @@ jobs:
       - run: |
           echo ${{ github.actor }} Started an integration run.
           echo They pushed to ${{ github.event.inputs.repository }}
-      - run: |
           echo ${{ github.event.inputs.artifact_name }}
           echo ${{ github.event.inputs.branch }}
           echo "the message is: ${{ github.event.inputs.message }}"
           echo run-id: ${{ github.event.inputs.run_id }}
-
+      - run: |
+          echo "::notice title=${{ github.actor }} Started an integration run:: They pushed to ${{ github.event.inputs.repository }} \
+               ${{ github.event.inputs.artifact_name }} ${{ github.event.inputs.branch }}"
       - name: configure Git
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
