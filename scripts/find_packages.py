@@ -8,7 +8,7 @@ if len(sys.argv) != 2:
     print("No directory given. Goodbye!")
     exit()
 
-if os.path.isfile("testconfig.yaml"):
+if os.path.isfile("_tax/testconfig.yaml"):
     print("Found testconfig.yaml")
     with open("testconfig.yaml") as f:
         try:

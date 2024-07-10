@@ -5,6 +5,7 @@ if len(sys.argv) != 2:
     exit()
 
 tax_name = sys.argv[1]
+print(f"tax: {tax_name}")
 ns = {"tp": "http://xbrl.org/2016/taxonomy-package"}
 doc = ET.parse("%s/META-INF/taxonomyPackage.xml" % tax_name)
 ep_list = []
