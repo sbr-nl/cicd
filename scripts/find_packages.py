@@ -20,11 +20,12 @@ if os.path.isfile("_tax/testconfig.yaml"):
                 branch = repo.get("branch")
                 name = repo.get("name")
                 package = repo.get("package")
-                git_cmd = f"git clone https://github.com/{owner}/{name} --branch {branch} && \
-                cd {name} \
+                git_cmd = f"git clone https://github.com/{owner}/{name} --branch {branch}"
+                subprocess.run(git_cmd)
+                package_cmd = f"cd {name} \
                 zip -qr ../{package} {package} && \
                 cd .. "
-                subprocess.run(git_cmd)
+                subprocess.run(package_cmd)
                 packages.append(f"{package}.zip")
         except yaml.YAMLError as exc:
             print(exc)
