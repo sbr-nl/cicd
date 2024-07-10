@@ -24,7 +24,7 @@ if os.path.isfile("_tax/testconfig.yaml"):
                 cd tst && \
                 git clone https://github.com/{owner}/{name} --branch {branch} && \
                 cd {name} \
-                zip -qr /tst/{package} {package} && \
+                zip -qr ../{package} {package} && \
                 cd $PWD "
                 subprocess.run(git_cmd)
                 packages.append(f"tst/{package}.zip")
