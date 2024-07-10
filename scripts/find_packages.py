@@ -21,7 +21,7 @@ if os.path.isfile("_tax/testconfig.yaml"):
                 name = repo.get("name")
                 package = repo.get("package")
                 git_cmd = f"PWD=`pwd` \
-                cd test && \
+                cd public/test && \
                 git clone https://github.com/{owner}/{name} --branch {branch} && \
                 cd {name} \
                 zip -qr ../{package} {package} && \

@@ -61,7 +61,7 @@ jobs:
       - run: |
           mkdir -p public/taxonomies/${{ github.event.inputs.branch }}/views
       - run: |
-          mkdir -p test
+          mkdir -p public/test
       - name: remove old package (if any)
         run: |
           if test -f public/taxonomies/${{ github.event.inputs.branch }}/${{ github.event.inputs.taxonomy_name }}.zip; then
