@@ -17,7 +17,7 @@ if os.path.isfile("_tax/testconfig.yaml"):
                 branch = repo.get("branch")
                 name = repo.get("name")
                 package = repo.get("package")
-                packages.append(f"public/taxonomies/{branch}/{package}")
+                packages.append(f"public/taxonomies/{branch}/{package}.zip")
         except yaml.YAMLError as exc:
             print(exc)
             exit(1)
