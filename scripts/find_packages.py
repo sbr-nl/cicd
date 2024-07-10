@@ -16,6 +16,7 @@ if os.path.isfile("_tax/testconfig.yaml"):
             repositories = yaml.safe_load(f)
             packages = []
             subprocess.run(["mkdir", "_tmp"])
+            subprocess.run("pwd", shell=True)
             for repo in repositories["repositories"]:
                 branch = repo.get("branch")
                 name = repo.get("name")
@@ -27,7 +28,7 @@ if os.path.isfile("_tax/testconfig.yaml"):
                 cd ../.."
                 subprocess.run(git_cmd, shell=True)
                 packages.append(f"_tmp/{package}.zip")
-            # print(subprocess.run("pwd && ls -l"))
+            print(subprocess.run("pwd && ls -l"))
         except yaml.YAMLError as exc:
             print(exc)
             exit(1)
