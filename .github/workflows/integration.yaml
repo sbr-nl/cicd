@@ -76,7 +76,7 @@ jobs:
 
       - id: packagelist
         run: |
-          PACKAGE_LIST=`python scripts/find_packages.py public/taxonomies/${{ github.event.inputs.branch }}`
+          PACKAGE_LIST=`python scripts/find_packages.py public/taxonomies/${{ github.event.inputs.branch }} ${{ github.repository_owner }}`
           echo package_list=$PACKAGE_LIST >> $GITHUB_ENV
 
       - id: instancelist

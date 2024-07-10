@@ -5,21 +5,23 @@ import yaml
 import subprocess
 
 
-if len(sys.argv) != 2:
+if len(sys.argv) != 3:
     print("No directory given. Goodbye!")
     exit()
 
 if os.path.isfile("_tax/testconfig.yaml"):
+    owner = sys.argv[2]
     with open("_tax/testconfig.yaml") as f:
         try:
             repositories = yaml.safe_load(f)
             packages = []
             subprocess.run(["mkdir", "_tmp"])
             for repo in repositories["repositories"]:
+                print("=-=")
                 branch = repo.get("branch")
                 name = repo.get("name")
                 package = repo.get("package")
-                git_cmd = f"cd _tmp; git clone {name} --branch {branch}; cd .."
+                git_cmd = f"cd _tmp; git clone {owner}/{name} --branch {branch}; cd .."
                 subprocess.run(git_cmd, shell=True)
                 package_cmd = f"cd _tmp; zip -r {package} {name}{package}; cd .."
                 subprocess.run(package_cmd, shell=True)
