@@ -5,20 +5,20 @@ on:
     inputs:
       branch:
         description: branch name to deploy to (_this_ repo) defaults to 'main'
-        default: main
+        default: version-control
         required: true
       repository:
         description: repository name which triggered this event (taxonomy default 'sbr-nl/jenv-taxonomie')
         required: true
-        default: sbr-nl/jenv-taxonomie
+        default: owner/kvk-taxonomie
       taxonomy_name:
         description: Name of the taxonomy package
         required: true
-        default: jenv_taxonomy_2024
+        default: kvk_taxonomy_2025
       message:
         description: Message to use when we commit taxonomy packages to this repository.
         required: false
-        default: "Dispatch started workflow."
+        default: "special forces"
 
 jobs:
   build:
