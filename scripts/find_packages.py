@@ -15,16 +15,16 @@ if os.path.isfile("_tax/testconfig.yaml"):
         try:
             repositories = yaml.safe_load(f)
             packages = []
-            subprocess.run(["mkdir", "tst"])
+            # subprocess.run(["mkdir", "tst"])
             for repo in repositories["repositories"]:
                 branch = repo.get("branch")
                 name = repo.get("name")
                 package = repo.get("package")
                 git_cmd = f"PWD=`pwd` \
-                cd tst && \
+                cd /tmp && \
                 git clone https://github.com/{owner}/{name} --branch {branch} && \
                 cd {name} \
-                zip -qr ../{package} {package} && \
+                zip -qr /tmp/{package} {package} && \
                 cd $PWD "
                 subprocess.run(git_cmd)
                 packages.append(f"tst/{package}.zip")
