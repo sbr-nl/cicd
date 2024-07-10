@@ -10,7 +10,7 @@ on:
       repository:
         description: repository name which triggered this event (taxonomy default 'sbr-nl/jenv-taxonomie')
         required: true
-        default: owner/kvk-taxonomie
+        default: xiffy/kvk-taxonomie
       taxonomy_name:
         description: Name of the taxonomy package
         required: true
