@@ -101,7 +101,7 @@ fi
 
 echo ""
 echo "=-="
-echo "gather entrypoints from the requested taxonomy"
+echo "gather entrypoints from the requested taxonomy: ${taxonomy_name}"
 echo "see which other taxonomies can be loaded"
 echo "find test instances"
 
