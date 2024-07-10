@@ -26,7 +26,7 @@ if os.path.isfile("_tax/testconfig.yaml"):
                 package_cmd = f"cd _tmp; zip -r {package} {name}{package}; cd .."
                 subprocess.run(package_cmd, shell=True)
                 packages.append(f"public/taxonomies/{branch}/{package}.zip")
-            print(subprocess.run("ls -l _tmp"))
+            print(subprocess.run("pwd && ls -l"))
         except yaml.YAMLError as exc:
             print(exc)
             exit(1)
