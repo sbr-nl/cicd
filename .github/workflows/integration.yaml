@@ -31,6 +31,7 @@ jobs:
 
       - run: |
           echo ${{ github.actor }} Started an integration run.
+          echo ${{ github.repository_owner }} owns this repo!
           echo They pushed to ${{ github.event.inputs.repository }}
           echo ${{ github.event.inputs.artifact_name }}
           echo ${{ github.event.inputs.branch }}
