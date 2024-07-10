@@ -15,20 +15,21 @@ if os.path.isfile("_tax/testconfig.yaml"):
         try:
             repositories = yaml.safe_load(f)
             packages = []
-            subprocess.run(["mkdir", "_tmp"])
+            subprocess.run(["mkdir", "/tst"])
             subprocess.run("pwd", shell=True)
             for repo in repositories["repositories"]:
                 branch = repo.get("branch")
                 name = repo.get("name")
                 package = repo.get("package")
-                git_cmd = f"cd _tmp && \
+                git_cmd = f"PWD=`pwd` \
+                cd /tst && \
                 git clone https://github.com/{owner}/{name} --branch {branch} && \
                 cd {name} \
-                zip -qr ../{package} {package} && \
-                cd ../.."
+                zip -qr /tst/{package} {package} && \
+                cd $PWD"
                 subprocess.run(git_cmd, shell=True)
-                packages.append(f"_tmp/{package}.zip")
-            print(subprocess.run("pwd && ls -l"))
+                packages.append(f"/tst/{package}.zip")
+            print(subprocess.run("ls -l /tst", shell=True))
         except yaml.YAMLError as exc:
             print(exc)
             exit(1)
