@@ -9,7 +9,6 @@ if len(sys.argv) != 2:
     exit()
 
 if os.path.isfile("_tax/testconfig.yaml"):
-    print("Found testconfig.yaml")
     with open("_tax/testconfig.yaml") as f:
         try:
             repositories = yaml.safe_load(f)
