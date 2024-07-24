@@ -21,9 +21,9 @@ if os.path.isfile("_tax/testconfig.yaml"):
                 name = repo.get("name")
                 package = repo.get("package")
                 subprocess.run("pwd")
-                subprocess.run("ls -al")
-                subprocess.run("git status")
-                git_cmd = f"echo \"git clone https://github.com/{owner}/{name}.git --branch {branch}\""
+                subprocess.run(["ls", "-al"], shell=True)
+                subprocess.run(["git",  "status"], shell=True)
+                git_cmd = f"git clone https://github.com/{owner}/{name}.git --branch {branch}"
                 subprocess.run(git_cmd)
                 package_cmd = f"cd {name} \
                 zip -qr ../{package} {package} && \
