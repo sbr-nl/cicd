@@ -21,10 +21,7 @@ if os.path.isfile("_tax/testconfig.yaml"):
                 name = repo.get("name")
                 package = repo.get("package")
                 git_cmd = ["git", "clone",  f"https://github.com/{owner}/{name}.git", "--branch", branch]
-                package_cmd = ["cd",  name, "&&", "zip",  "-qr",  f"../{package}",  package, "&&", "cd",  ".."]
-                # print(subprocess.run(["ls", "-l", name]))
-                # git_cmd.append("&&")
-                # git_cmd.extend(package_cmd)
+                package_cmd = ["cd",  name, " && ", "zip",  "-r",  f"../{package}",  package, " && ", "cd",  ".."]
                 subprocess.run(git_cmd)
                 subprocess.run(package_cmd)
                 packages.append(f"_tax/{package}.zip")
