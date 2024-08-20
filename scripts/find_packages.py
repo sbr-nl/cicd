@@ -34,7 +34,7 @@ if os.path.isfile("_tax/testconfig.yaml"):
     pattern = "_tax/*zip"
     packages = glob.glob(pattern)
     print(os.getcwd())
-    outp = subprocess.run(["ls", "-al"], shell=True, capture_output=True)
+    outp = subprocess.run(["ls", "-al", "_tax"], shell=True, capture_output=True)
     print(outp)
 else:
     pattern = "%s/*zip" % sys.argv[1]
