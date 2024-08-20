@@ -26,16 +26,18 @@ if os.path.isfile("_tax/testconfig.yaml"):
                 os.chdir(name)
                 # package_cmd = ["cd",  name, " && ", "zip",  "-r",  f"../{package}",  package, " && ", "cd",  ".."]
                 package_cmd = ["zip", "-r", f"../_tax/{package}", package]
-                outp = subprocess.run(package_cmd, shell=True)
-                print(outp)
+                outp = subprocess.run(package_cmd)
                 os.chdir("..")
         except yaml.YAMLError as exc:
             print(exc)
             exit(1)
     pattern = "_tax/*zip"
     packages = glob.glob(pattern)
+    print("==")
+    print(packages)
+    print("==")
     print(os.getcwd())
-    outp = subprocess.run(["ls", "-al", "_tax"], shell=True, capture_output=True)
+    subprocess.run(["ls", "-al", "_tax"])
     print(outp)
 else:
     pattern = "%s/*zip" % sys.argv[1]
