@@ -25,7 +25,7 @@ if os.path.isfile("_tax/testconfig.yaml"):
 
                 os.chdir(name)
                 # package_cmd = ["cd",  name, " && ", "zip",  "-r",  f"../{package}",  package, " && ", "cd",  ".."]
-                package_cmd = ["zip", "-r", f"../_tax/{package}", package]
+                package_cmd = ["zip", "-qr", f"../_tax/{package}", package]
                 outp = subprocess.run(package_cmd)
                 os.chdir("..")
         except yaml.YAMLError as exc:
