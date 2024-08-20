@@ -21,10 +21,11 @@ if os.path.isfile("_tax/testconfig.yaml"):
                 name = repo.get("name")
                 package = repo.get("package")
                 git_cmd = ["git", "clone",  f"https://github.com/{owner}/{name}.git", "--branch", branch]
+                subprocess.run(git_cmd)
+
                 os.chdir(name)
                 # package_cmd = ["cd",  name, " && ", "zip",  "-r",  f"../{package}",  package, " && ", "cd",  ".."]
                 package_cmd = ["zip", "-r", f"../_tax/{package}", f"{package}"]
-                subprocess.run(git_cmd)
                 outp = subprocess.run(package_cmd, shell=True, capture_output=True)
                 print(outp)
                 os.chdir("..")
