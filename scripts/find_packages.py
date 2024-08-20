@@ -24,7 +24,7 @@ if os.path.isfile("_tax/testconfig.yaml"):
                 # package_cmd = ["cd",  name, " && ", "zip",  "-r",  f"../{package}",  package, " && ", "cd",  ".."]
                 package_cmd = ["cd", name, "&&", "zip", "-qr", f"../_tax/{package}", f"{package}"]
                 subprocess.run(git_cmd)
-                subprocess.run(package_cmd)
+                subprocess.run(package_cmd, shell=True)
                 packages.append(f"_tax/{package}.zip")
         except yaml.YAMLError as exc:
             print(exc)
