@@ -24,14 +24,14 @@ if os.path.isfile("_tax/testconfig.yaml"):
                 # package_cmd = ["cd",  name, " && ", "zip",  "-r",  f"../{package}",  package, " && ", "cd",  ".."]
                 package_cmd = ["cd", name, "&&", "zip", "-r", f"../_tax/{package}", f"{package}"]
                 subprocess.run(git_cmd)
-                outp = subprocess.run(package_cmd, shell=True, capture_output=False)
+                outp = subprocess.run(package_cmd, shell=True, capture_output=True)
                 print(outp)
         except yaml.YAMLError as exc:
             print(exc)
             exit(1)
     pattern = "_tax/*zip"
     packages = glob.glob(pattern)
-    outp = subprocess.run(["pwd", "&&", "ls", "-al"], shell=True, capture_output=False)
+    outp = subprocess.run(["pwd", "&&", "ls", "-al"], shell=True, capture_output=True)
     print(outp)
 else:
     pattern = "%s/*zip" % sys.argv[1]
