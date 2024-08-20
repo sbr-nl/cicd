@@ -70,6 +70,10 @@ jobs:
       - name: Create the package
         run: cd _tax && zip -r ../public/taxonomies/${{ github.event.inputs.branch }}/${{ github.event.inputs.taxonomy_name }} ${{ github.event.inputs.taxonomy_name }}
 
+      - name: Copy package to _tax directory for combbined testing
+        run: |
+          cp public/taxonomies/${{ github.event.inputs.branch }}/${{ github.event.inputs.taxonomy_name }}.zip _tax
+
       - id: eplist
         run: |
           EP_LIST=`python scripts/find_entrypoints.py _tax/${{ github.event.inputs.taxonomy_name }}` 
