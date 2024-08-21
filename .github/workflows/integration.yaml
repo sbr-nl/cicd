@@ -18,7 +18,7 @@ on:
       message:
         description: Message to use when we commit taxonomy packages to this repository.
         required: false
-        default: "Dispatch started workflow."
+        default: "Publishing updated taxonomypackage: "
 
 jobs:
   build:
@@ -31,13 +31,15 @@ jobs:
 
       - run: |
           echo ${{ github.actor }} Started an integration run.
+          echo ${{ github.repository_owner }} owns this repo!
           echo They pushed to ${{ github.event.inputs.repository }}
-      - run: |
           echo ${{ github.event.inputs.artifact_name }}
           echo ${{ github.event.inputs.branch }}
           echo "the message is: ${{ github.event.inputs.message }}"
           echo run-id: ${{ github.event.inputs.run_id }}
-
+      - run: |
+          echo "::notice title=${{ github.actor }} Started an integration run:: They pushed to ${{ github.event.inputs.repository }} \
+               ${{ github.event.inputs.artifact_name }} ${{ github.event.inputs.branch }}"
       - name: configure Git
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
@@ -58,13 +60,19 @@ jobs:
 
       - run: |
           mkdir -p public/taxonomies/${{ github.event.inputs.branch }}/views
+      - run: |
+          mkdir -p public/test
       - name: remove old package (if any)
-        continue-on-error: true
         run: |
+          if test -f public/taxonomies/${{ github.event.inputs.branch }}/${{ github.event.inputs.taxonomy_name }}.zip; then
             rm public/taxonomies/${{ github.event.inputs.branch }}/${{ github.event.inputs.taxonomy_name }}.zip 2>/dev/null
+          fi
+      - name: Create the package
+        run: cd _tax && zip -r ../public/taxonomies/${{ github.event.inputs.branch }}/${{ github.event.inputs.taxonomy_name }} ${{ github.event.inputs.taxonomy_name }}
 
-      - name: Create package
-        run: cd _tax && pwd && zip -r ../public/taxonomies/${{ github.event.inputs.branch }}/${{ github.event.inputs.taxonomy_name }} ${{ github.event.inputs.taxonomy_name }}
+      - name: Copy package to _tax directory for combbined testing
+        run: |
+          cp public/taxonomies/${{ github.event.inputs.branch }}/${{ github.event.inputs.taxonomy_name }}.zip _tax
 
       - id: eplist
         run: |
@@ -73,8 +81,9 @@ jobs:
 
       - id: packagelist
         run: |
-          PACKAGE_LIST=`python scripts/find_packages.py public/taxonomies/${{ github.event.inputs.branch }}`
+          PACKAGE_LIST=`python scripts/find_packages.py public/taxonomies/${{ github.event.inputs.branch }} ${{ github.repository_owner }}`
           echo package_list=$PACKAGE_LIST >> $GITHUB_ENV
+
       - id: instancelist
         run: |
           INSTANCE_LIST=`python scripts/find_instances.py _tax/instances`
@@ -140,7 +149,7 @@ jobs:
       - name: Commit files
         run: |
             git add public/taxonomies/${{ github.event.inputs.branch }}/${{ github.event.inputs.taxonomy_name }}.zip
-            git commit -a -m "${{ github.event.inputs.message }}" -m "" -m "Add changes to taxonomy package: ${{ github.event.inputs.taxonomy_name }}"
+            git commit -a -m "${{ github.event.inputs.message }} ${{ github.event.inputs.taxonomy_name }}" -m "" -m "Add changes to taxonomy package: ${{ github.event.inputs.taxonomy_name }}"
 
       - name: Push changes
         uses: ad-m/github-push-action@master
@@ -159,5 +168,5 @@ jobs:
           -H "Accept: application/vnd.github+json" \
           -H "Authorization: Bearer ${{ secrets.PAT }}" \
           -H "X-GitHub-Api-Version: 2022-11-28" \
-          https://api.github.com/repos/sbr-nl/cicd/actions/workflows/static.yml/dispatches \
+          https://api.github.com/repos/xiffy/cicd/actions/workflows/static.yml/dispatches \
           -d '{"ref":"${{ github.ref }}"}'
