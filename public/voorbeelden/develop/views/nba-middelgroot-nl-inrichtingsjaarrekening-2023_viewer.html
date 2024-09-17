@@ -10730,11 +10730,11 @@
             <td></td>
             <td></td>
             <td></td>
-            <td>0</td>
+            <td><ix:nonFraction contextRef="context_02" decimals="-3" format="ixt:num-dot-decimal" id="ID0004895" name="middelgroot:EquitySubtotal" scale="3" unitRef="EUR">0</ix:nonFraction></td>
             <td></td>
             <td></td>
             <td></td>
-            <td>0</td>
+            <td><ix:nonFraction contextRef="context_05" decimals="-3" format="ixt:num-dot-decimal" id="ID0004905" name="middelgroot:EquitySubtotal" scale="3" unitRef="EUR">0</ix:nonFraction></td>
           </tr>
           <tr>
             <td>Resultaat na belasting</td>
@@ -33595,6 +33595,13 @@
         ]
        ]
       },
+      "middelgroot:EquitySubtotal": {
+       "labels": {
+        "std": {
+         "nl": "Eigen vermogen subtotaal"
+        }
+       }
+      },
       "bw2-titel9:ResultForTheYear": {
        "labels": {
         "std": {
@@ -39959,6 +39966,30 @@
        "f": "ixt:num-dot-decimal",
        "d": -3
       },
+      "ID0004895": {
+       "a": {
+        "c": "middelgroot:EquitySubtotal",
+        "e": "e:12345678",
+        "u": "iso4217:EUR",
+        "bw2-titel9:FinancialStatementsTypeAxis": "bw2-titel9:SeparateMember",
+        "p": "2024-01-01"
+       },
+       "v": "0",
+       "f": "ixt:num-dot-decimal",
+       "d": -3
+      },
+      "ID0004905": {
+       "a": {
+        "c": "middelgroot:EquitySubtotal",
+        "e": "e:12345678",
+        "u": "iso4217:EUR",
+        "bw2-titel9:FinancialStatementsTypeAxis": "bw2-titel9:SeparateMember",
+        "p": "2023-01-01"
+       },
+       "v": "0",
+       "f": "ixt:num-dot-decimal",
+       "d": -3
+      },
       "ID0004910": {
        "a": {
         "c": "bw2-titel9:ResultForTheYear",
@@ -40851,6 +40882,11 @@
           "t": "middelgroot:TransferToLegalReserveDeductedFromResultForTheYear"
          }
         ],
+        "bw2-titel9:LiabilitiesCurrent": [
+         {
+          "t": "middelgroot:PayablesOtherAccrualsAndDeferredIncomeCurrent"
+         }
+        ],
         "middelgroot:PayablesOtherAccrualsAndDeferredIncomeCurrent": [
          {
           "t": "bw2-titel9:PayablesOtherCurrent"
@@ -41016,6 +41052,9 @@
          },
          {
           "t": "bw2-titel9:ReservesOther"
+         },
+         {
+          "t": "middelgroot:EquitySubtotal"
          },
          {
           "t": "bw2-titel9:ResultForTheYear"
@@ -41375,7 +41414,31 @@
       },
       "calc": {
        "ns9": {
+        "bw2-titel9:RetainedEarnings": [
+         {
+          "t": "bw2-titel9:ResultForTheYear",
+          "w": 1.0
+         },
+         {
+          "t": "rj:PreferredDividendDeductedFromResultForTheYear",
+          "w": -1.0
+         },
+         {
+          "t": "middelgroot:TransferToLegalReserveDeductedFromResultForTheYear",
+          "w": -1.0
+         }
+        ],
         "bw2-titel9:Equity": [
+         {
+          "t": "middelgroot:EquitySubtotal",
+          "w": 1.0
+         },
+         {
+          "t": "bw2-titel9:RetainedEarnings",
+          "w": 1.0
+         }
+        ],
+        "middelgroot:EquitySubtotal": [
          {
           "t": "bw2-titel9:ShareCapital",
           "w": 1.0
@@ -41399,24 +41462,6 @@
          {
           "t": "bw2-titel9:ReservesOther",
           "w": 1.0
-         },
-         {
-          "t": "bw2-titel9:RetainedEarnings",
-          "w": 1.0
-         }
-        ],
-        "bw2-titel9:RetainedEarnings": [
-         {
-          "t": "bw2-titel9:ResultForTheYear",
-          "w": 1.0
-         },
-         {
-          "t": "rj:PreferredDividendDeductedFromResultForTheYear",
-          "w": -1.0
-         },
-         {
-          "t": "middelgroot:TransferToLegalReserveDeductedFromResultForTheYear",
-          "w": -1.0
          }
         ]
        }
