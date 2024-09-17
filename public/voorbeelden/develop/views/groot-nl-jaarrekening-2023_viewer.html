@@ -22778,15 +22778,15 @@
             <td></td>
           </tr>
           <tr>
-            <td>Totaal van eigen vermogen</td>
+            <td>Sub-totaal van eigen vermogen</td>
             <td></td>
             <td></td>
             <td></td>
-            <td><ix:nonFraction contextRef="context_02" decimals="-3" format="ixt:num-dot-decimal" id="ID0010230" name="bw2-titel9:Equity" scale="3" unitRef="EUR">0</ix:nonFraction></td>
+            <td><ix:nonFraction contextRef="context_02" decimals="-3" format="ixt:num-dot-decimal" id="ID0010230" name="groot:EquitySubtotal" scale="3" unitRef="EUR">0</ix:nonFraction></td>
             <td></td>
             <td></td>
             <td></td>
-            <td><ix:nonFraction contextRef="context_05" decimals="-3" format="ixt:num-dot-decimal" id="ID0010240" name="bw2-titel9:Equity" scale="3" unitRef="EUR">0</ix:nonFraction></td>
+            <td><ix:nonFraction contextRef="context_05" decimals="-3" format="ixt:num-dot-decimal" id="ID0010240" name="groot:EquitySubtotal" scale="3" unitRef="EUR">0</ix:nonFraction></td>
           </tr>
           <tr class="empty-row">
             <td colspan="7"></td>
@@ -67189,6 +67189,13 @@
         ]
        ]
       },
+      "groot:EquitySubtotal": {
+       "labels": {
+        "std": {
+         "nl": "Eigen vermogen subtotaal"
+        }
+       }
+      },
       "bw2-titel9:ResultForTheYear": {
        "labels": {
         "std": {
@@ -76385,7 +76392,7 @@
       },
       "ID0010230": {
        "a": {
-        "c": "bw2-titel9:Equity",
+        "c": "groot:EquitySubtotal",
         "e": "e:12345678",
         "u": "iso4217:EUR",
         "bw2-titel9:FinancialStatementsTypeAxis": "bw2-titel9:SeparateMember",
@@ -76397,7 +76404,7 @@
       },
       "ID0010240": {
        "a": {
-        "c": "bw2-titel9:Equity",
+        "c": "groot:EquitySubtotal",
         "e": "e:12345678",
         "u": "iso4217:EUR",
         "bw2-titel9:FinancialStatementsTypeAxis": "bw2-titel9:SeparateMember",
@@ -84150,6 +84157,9 @@
           "t": "bw2-titel9:ReservesOther"
          },
          {
+          "t": "groot:EquitySubtotal"
+         },
+         {
           "t": "bw2-titel9:ResultForTheYear"
          },
          {
@@ -84843,7 +84853,35 @@
       },
       "calc": {
        "ns9": {
+        "bw2-titel9:RetainedEarnings": [
+         {
+          "t": "bw2-titel9:ResultForTheYear",
+          "w": 1.0
+         },
+         {
+          "t": "rj:PreferredDividendDeductedFromResultForTheYear",
+          "w": -1.0
+         },
+         {
+          "t": "groot:InterimDividendDeductedFromResultForTheYear",
+          "w": -1.0
+         },
+         {
+          "t": "groot:TransferToLegalReserveDeductedFromResultForTheYear",
+          "w": -1.0
+         }
+        ],
         "bw2-titel9:Equity": [
+         {
+          "t": "groot:EquitySubtotal",
+          "w": 1.0
+         },
+         {
+          "t": "bw2-titel9:RetainedEarnings",
+          "w": 1.0
+         }
+        ],
+        "groot:EquitySubtotal": [
          {
           "t": "bw2-titel9:ShareCapitalPaidCalledUp",
           "w": 1.0
@@ -84871,28 +84909,6 @@
          {
           "t": "bw2-titel9:ReservesOther",
           "w": 1.0
-         },
-         {
-          "t": "bw2-titel9:RetainedEarnings",
-          "w": 1.0
-         }
-        ],
-        "bw2-titel9:RetainedEarnings": [
-         {
-          "t": "bw2-titel9:ResultForTheYear",
-          "w": 1.0
-         },
-         {
-          "t": "rj:PreferredDividendDeductedFromResultForTheYear",
-          "w": -1.0
-         },
-         {
-          "t": "groot:InterimDividendDeductedFromResultForTheYear",
-          "w": -1.0
-         },
-         {
-          "t": "groot:TransferToLegalReserveDeductedFromResultForTheYear",
-          "w": -1.0
          }
         ]
        }
