@@ -3568,11 +3568,15 @@
             <td></td>
             <td></td>
             <td></td>
-            <td>0</td>
+            <td>
+              <ix:nonFraction contextRef="context_3" decimals="-3" format="ixt:num-dot-decimal" id="ID0002585" name="groot:CashFlowOperatingActivitiesSubtotal" scale="3" unitRef="EUR">0</ix:nonFraction>
+            </td>
             <td></td>
             <td></td>
             <td></td>
-            <td>0</td>
+            <td>
+              <ix:nonFraction contextRef="context_4" decimals="-3" format="ixt:num-dot-decimal" id="ID0002595" name="groot:CashFlowOperatingActivitiesSubtotal" scale="3" unitRef="EUR">0</ix:nonFraction>
+            </td>
           </tr>
           <tr class="empty-row sub-total">
             <td></td>
@@ -55126,6 +55130,13 @@
         ]
        ]
       },
+      "groot:CashFlowOperatingActivitiesSubtotal": {
+       "labels": {
+        "std": {
+         "nl": "Subtotaal"
+        }
+       }
+      },
       "rj:CashFlowOperatingActivities": {
        "labels": {
         "std": {
@@ -73534,6 +73545,30 @@
        "f": "ixt:num-dot-decimal",
        "d": -3
       },
+      "ID0002585": {
+       "a": {
+        "c": "groot:CashFlowOperatingActivitiesSubtotal",
+        "e": "e:12345678",
+        "u": "iso4217:EUR",
+        "bw2-titel9:FinancialStatementsTypeAxis": "bw2-titel9:ConsolidatedMember",
+        "p": "2023-01-01/2024-01-01"
+       },
+       "v": "0",
+       "f": "ixt:num-dot-decimal",
+       "d": -3
+      },
+      "ID0002595": {
+       "a": {
+        "c": "groot:CashFlowOperatingActivitiesSubtotal",
+        "e": "e:12345678",
+        "u": "iso4217:EUR",
+        "bw2-titel9:FinancialStatementsTypeAxis": "bw2-titel9:ConsolidatedMember",
+        "p": "2022-01-01/2023-01-01"
+       },
+       "v": "0",
+       "f": "ixt:num-dot-decimal",
+       "d": -3
+      },
       "ID0002580": {
        "a": {
         "c": "rj:CashFlowOperatingActivities",
@@ -84341,6 +84376,9 @@
           "t": "rj:IncomeTaxPaidClassifiedAsOperatingActivities"
          },
          {
+          "t": "groot:CashFlowOperatingActivitiesSubtotal"
+         },
+         {
           "t": "rj:CashFlowOperatingActivities"
          },
          {
@@ -84851,6 +84889,16 @@
         ]
        }
       },
+      "calc": {
+       "ns10": {
+        "rj:CashFlowOperatingActivities": [
+         {
+          "t": "groot:CashFlowOperatingActivitiesSubtotal",
+          "w": 1.0
+         }
+        ]
+       }
+      },
       "d-d": {
        "ns16": {
         "bw2-titel9:ClassesOfEquityAxis": [
@@ -85275,26 +85323,6 @@
          {
           "t": "rj:CashFlowFromOperations",
           "w": 1.0
-         },
-         {
-          "t": "rj:InterestReceivedClassifiedAsOperatingActivities",
-          "w": 1.0
-         },
-         {
-          "t": "rj:DividendsReceivedClassifiedAsOperatingActivities",
-          "w": 1.0
-         },
-         {
-          "t": "rj:IncomeTaxReceivedClassifiedAsOperatingActivities",
-          "w": 1.0
-         },
-         {
-          "t": "rj:InterestPaidClassifiedAsOperatingActivities",
-          "w": -1.0
-         },
-         {
-          "t": "rj:IncomeTaxPaidClassifiedAsOperatingActivities",
-          "w": -1.0
          }
         ],
         "rj:AdjustmentsReconcileOperatingResult": [
@@ -85357,6 +85385,28 @@
          {
           "t": "rj:ChangesWorkingCapital",
           "w": 1.0
+         }
+        ],
+        "groot:CashFlowOperatingActivitiesSubtotal": [
+         {
+          "t": "rj:InterestReceivedClassifiedAsOperatingActivities",
+          "w": 1.0
+         },
+         {
+          "t": "rj:DividendsReceivedClassifiedAsOperatingActivities",
+          "w": 1.0
+         },
+         {
+          "t": "rj:IncomeTaxReceivedClassifiedAsOperatingActivities",
+          "w": 1.0
+         },
+         {
+          "t": "rj:InterestPaidClassifiedAsOperatingActivities",
+          "w": -1.0
+         },
+         {
+          "t": "rj:IncomeTaxPaidClassifiedAsOperatingActivities",
+          "w": -1.0
          }
         ],
         "rj:CashFlowInvestingActivities": [
