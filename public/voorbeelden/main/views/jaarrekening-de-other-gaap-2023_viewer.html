@@ -1,0 +1,1334 @@
+<?xml version="1.0" encoding="utf-8"?>
+<html xmlns:bw2-titel9="https://www.nltaxonomie.nl/jenv/2024-03-31/bw2-titel9-cor" xmlns:iso4217="http://www.xbrl.org/2003/iso4217" xmlns:ix="http://www.xbrl.org/2013/inlineXBRL" xmlns:ixt="http://www.xbrl.org/inlineXBRL/transformation/2020-02-12" xmlns:kvk="https://www.nltaxonomie.nl/kvk/2024-03-31/kvk-cor" xmlns:link="http://www.xbrl.org/2003/linkbase" xmlns:ref="http://www.xbrl.org/2006/ref" xmlns:rj="https://www.nltaxonomie.nl/rj/2024-03-31/rj-cor" xmlns:utr="http://www.xbrl.org/2009/utr" xmlns:xbrldi="http://xbrl.org/2006/xbrldi" xmlns:xbrldt="http://xbrl.org/2005/xbrldt" xmlns:xbrli="http://www.xbrl.org/2003/instance" xmlns:xl="http://www.xbrl.org/2003/XLink" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.w3.org/1999/xhtml" xml:lang="nl">
+
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+  <title>Deponeren jaarrekening bij KVK</title>
+  <style type="text/css">
+    @media print {
+      html {
+        font-size: 9.5pt !important;
+      }
+
+      .page {
+        padding: 0 !important;
+        margin: 0 auto !important;
+        box-shadow: none !important;
+        height: calc(100vh - 1rem) !important;
+        min-height: auto !important;
+        min-width: auto !important;
+      }
+    }
+
+    html {
+      font-family: "Roboto", Arial, Helvetica, sans-serif;
+      font-weight: 300;
+      background-color: #fff;
+      font-size: 11pt;
+      line-height: 18pt;
+    }
+
+    body {
+      counter-reset: page h2 h3 h4 h5;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .page {
+      position: relative;
+      min-width: 21cm;
+      min-height: 29.7cm;
+      width: 21cm;
+      height: 29.7cm;
+      margin: 1cm;
+      padding: 1cm 1.5cm;
+      display: flex;
+      flex-flow: column;
+      justify-content: center;
+      counter-increment: page;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+      border-radius: 2px;
+    }
+
+    h1,
+    h2 {
+      font-family: "Roboto", Arial, Helvetica, sans-serif;
+      font-weight: 900;
+      line-height: normal;
+    }
+
+    h1 {
+      color: #00526e;
+      font-size: 30pt;
+      margin-bottom: 3rem;
+    }
+
+    h2 {
+      color: #aa418c;
+      font-size: 13pt;
+      margin-bottom: 5px;
+    }
+
+    h2+ol,
+    h2+p {
+      margin-top: 0px;
+    }
+
+    table {
+      margin-top: 2rem;
+      font-size: 11pt;
+      font-weight: 300;
+    }
+
+    td {
+      padding-bottom: 5px;
+    }
+
+    td:first-of-type {
+      padding-right: 20px;
+    }
+
+    ol {
+      padding-left: 0;
+      list-style-type: none;
+    }
+
+    li {
+      padding-left: 2rem;
+      counter-increment: item;
+      display: block;
+      position: relative;
+    }
+
+    li:before {
+      content: counter(item) ". ";
+      position: absolute;
+      left: 0;
+    }
+
+    ol.page-two {
+      counter-reset: item 2;
+    }
+
+    .page:not(:last-child) {
+      page-break-after: always;
+    }
+
+    .header,
+    .footer,
+    .content {
+      padding-left: 2rem;
+      padding-right: 4rem;
+    }
+
+    .header {
+      margin-top: 4rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .content {
+      flex: 1;
+    }
+
+    .footer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      align-items: center;
+      color: white;
+      padding-left: 2rem;
+    }
+
+    .footer.first {
+
+      height: 2.3rem;
+      background-image: linear-gradient(90deg, #aa418c, #ff9300);
+    }
+
+    .footer.second {
+      height: 5rem;
+      background-color: #aa418c;
+    }
+
+    .footer-content {
+      padding-left: 1.5cm;
+      font-size: 8pt;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      height: 2.5rem;
+    }
+
+    .footer-content img {
+      height: 2.5rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div style="display:none">
+    <ix:header>
+      <ix:references xml:lang="nl">
+        <link:schemaRef xlink:href="https://www.nltaxonomie.nl/kvk/2024-03-31/kvk-annual-report-other-gaap.xsd" xlink:type="simple"></link:schemaRef>
+      </ix:references>
+      <ix:resources>
+        <xbrli:context id="context_1">
+          <xbrli:entity>
+            <xbrli:identifier scheme="http://www.kvk.nl/kvk-id">12345678</xbrli:identifier>
+          </xbrli:entity>
+          <xbrli:period>
+            <xbrli:startDate>2023-01-01</xbrli:startDate>
+            <xbrli:endDate>2023-12-31</xbrli:endDate>
+          </xbrli:period>
+        </xbrli:context>
+      </ix:resources>
+    </ix:header>
+  </div>
+
+  <div class="page">
+
+    <div class="header">
+      <img alt="kvk-logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iMzZweCIgdmlld0JveD0iMCAwIDg5IDI0Ij4KICAgICAgICA8cGF0aCBmaWxsPSIjMDA1MjZFIiBkPSJNNzEuNDgzMzMzMywxNC43MTY2NjY3IEM3MS4yNzUsMTQuMzc1IDcxLjEzMzMzMzMsMTQuMTkxNjY2NyA3MC45NSwxNC4wODMzMzMzIEM3MC41NSwxMy44NDE2NjY3IDY5Ljk5MTY2NjcsMTMuOTkxNjY2NyA2OS43NDE2NjY3LDE0LjQxNjY2NjcgQzY5LjU5MTY2NjcsMTQuNjkxNjY2NyA2OS41OTE2NjY3LDE1LjMgNjkuNTkxNjY2NywxNS41MDgzMzMzIEw2OS41OTE2NjY3LDI0IEw2MCwyNCBMNjAsMCBMNjkuNiwwIEw2OS42LDEwLjEyNSBMNzYuOTE2NjY2NywwIEw4Ny40ODMzMzMzLDAgTDc5LjIwODMzMzMsMTAuNTU4MzMzMyBMODguMTY2NjY2NywyNCBMNzcuMjI1LDI0IEw3MS40ODMzMzMzLDE0LjcxNjY2NjcgWiBNMzcuMzQxNjY2NywyNCBMNDguMTgzMzMzMywyNCBMNTcuMDkxNjY2NywwIEw0Ny4zODMzMzMzLDAgTDQzLjE4MzMzMzMsMTMuMzgzMzMzMyBMNDMuMTE2NjY2NywxMy4zODMzMzMzIEwzOC45NTgzMzMzLDAgTDI4LjgzMzMzMzMsMCBMMzcuMzQxNjY2NywyNCBaIE0xNy4yMjUsMjQgTDI4LjE2NjY2NjcsMjQgTDE5LjIwODMzMzMsMTAuNTU4MzMzMyBMMjcuNDgzMzMzMywwIEwxNi45MTY2NjY3LDAgTDkuNiwxMC4xMjUgTDkuNiwwIEwwLDAgTDAsMjQgTDkuNTkxNjY2NjcsMjQgTDkuNTkxNjY2NjcsMTUuNTA4MzMzMyBDOS41OTE2NjY2NywxNS4zIDkuNTkxNjY2NjcsMTQuNjkxNjY2NyA5Ljc0MTY2NjY3LDE0LjQxNjY2NjcgQzkuOTkxNjY2NjcsMTMuOTkxNjY2NyAxMC41NSwxMy44NDE2NjY3IDEwLjk1LDE0LjA4MzMzMzMgQzExLjEzMzMzMzMsMTQuMTkxNjY2NyAxMS4yNzUsMTQuMzc1IDExLjQ4MzMzMzMsMTQuNzE2NjY2NyBMMTcuMjI1LDI0IFoiPjwvcGF0aD4KICAgICAgPC9zdmc+"/>
+    </div>
+
+    <div class="content">
+      <h1 id="form">Formulier voor deponeren jaarrekening bij KVK</h1>
+      <h2>Doel</h2>
+      <p>De volgende gegevens zijn van belang om de <a href="beispielgmbh-jahresabschluss-de-2023-12-31.html">bijgevoegde jaarrekening</a> goed en juist te laten verwerken door KVK.</p>
+      <h2>Algemeen</h2>
+      <table>
+        <colgroup>
+          <col/>
+          <col/>
+        </colgroup>
+        <tbody>
+          <tr>
+            <td>Naam rechtspersoon</td>
+            <td>
+              <ix:nonNumeric contextRef="context_1" escape="false" id="ID000010" name="bw2-titel9:LegalEntityName">Beispiel GmbH</ix:nonNumeric>
+            </td>
+          </tr>
+          <tr>
+            <td>Rechtvorm rechtspersoon</td>
+            <td>
+              <ix:nonNumeric contextRef="context_1" escape="false" id="ID000011" name="bw2-titel9:LegalEntityLegalForm">GmbH</ix:nonNumeric>
+            </td>
+          </tr>
+          <tr>
+            <td>Vestigingsplaats</td>
+            <td>
+              <ix:nonNumeric contextRef="context_1" escape="false" id="ID000012" name="bw2-titel9:LegalEntityRegisteredOffice">Hamburg</ix:nonNumeric>
+            </td>
+          </tr>
+          <tr>
+            <td>KVK-nummer</td>
+            <td>
+              <ix:nonNumeric contextRef="context_1" escape="false" id="ID000020" name="bw2-titel9:ChamberOfCommerceRegistrationNumber">12345678</ix:nonNumeric>
+            </td>
+          </tr>
+          <tr>
+            <td>Bedrijfsklasse</td>
+            <td>
+              <ix:nonNumeric contextRef="context_1" format="ixt:fixed-true" id="ID0000030" name="kvk:LegalEntitySizeSmall">Klein</ix:nonNumeric>
+            </td>
+          </tr>
+          <tr>
+            <td>Maand einde boekjaar</td>
+            <td>
+              <ix:nonNumeric contextRef="context_1" format="ixt:date-day-monthname-year-nl" id="ID0000032" name="bw2-titel9:FinancialReportingPeriodEndDate">31 december 2023</ix:nonNumeric>
+            </td>
+          </tr>
+          <tr>
+            <td>Boekjaar</td>
+            <td>
+              <ix:nonNumeric contextRef="context_1" escape="false" id="ID000041" name="bw2-titel9:FinancialReportingPeriod">2023</ix:nonNumeric>
+            </td>
+          </tr>
+          <tr>
+            <td>Geconsolideerde jaarrekening</td>
+            <td>
+              <ix:nonNumeric contextRef="context_1" escape="false" format="ixt:fixed-false" id="ID000042" name="rj:FinancialStatementsConsolidated">Nee</ix:nonNumeric>
+            </td>
+          </tr>
+          <tr>
+            <td>Deponeringsstatus</td>
+            <td>
+              <ix:nonNumeric contextRef="context_1" format="ixt:fixed-true" id="ID0000050" name="bw2-titel9:DocumentAdoptionStatus">Vastgesteld</ix:nonNumeric>
+            </td>
+          </tr>
+          <tr>
+            <td>Vaststellingsdatum</td>
+            <td>
+              <ix:nonNumeric contextRef="context_1" format="ixt:date-day-monthname-year-nl" id="ID0000060" name="bw2-titel9:DocumentAdoptionDate">8 november 2024</ix:nonNumeric>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <p>U wordt vriendelijk verzocht om bovenstaande gegevens in te vullen. Vervolgens voegt u dit ingevulde iXBRL document samen met uw jaarrekening in een XBRL Report Package.</p>
+      <h2>Achtergrond</h2>
+      <ol class="page-one">
+        <li>De jaarrekening moet voorzien zijn van de Naam van de rechtspersoon, bijbehorend KVK-nummer en Bedrijfsklasse. Dit is nodig om de jaarrekening in het Handelsregister te kunnen opslaan bij het juiste dossier.</li>
+        <li>De jaarrekening moet zijn voorzien van Maand einde boekjaar en Boekjaar. Volgens de wet kan een rechtspersoon per boekjaar slechts één definitief vastgestelde jaarrekening deponeren. Correcties worden via een mededeling bij het Handelsregister gedeponeerd. Indien het einde van een boekjaar wordt aangepast, in geval wordt overgegaan van een gebroken boekjaar naar een boekjaar op basis van een kalenderjaar, is het wél toegestaan dat een rechtspersoon 2 keer in één kalenderjaar een vastgestelde jaarrekening deponeert. Om dit te kunnen controleren, wordt de combinatie van Boekjaar en Maand einde boekjaar gevraagd om op te geven.</li>
+      </ol>
+    </div>
+
+    <div class="footer first">
+      <div class="footer-content">Juni 2024</div>
+    </div>
+
+  </div>
+
+  <div class="page">
+
+    <div class="header">
+    </div>
+
+    <div class="content">
+      <ol class="page-two">
+        <li>De jaarrekening moet voorzien zijn van de Deponeringsstatus. De wet verplicht openbaarmaking van de nog niet vastgestelde jaarrekening als deze niet binnen de gestelde termijn is vastgesteld. Om het onderscheid te kunnen maken tussen de aangeleverde niet-vastgestelde jaarrekening en de later toegestuurde vastgestelde jaarrekening moet de deponeringstatus worden meegegeven.</li>
+        <li>De, door de algemene vergadering, vastgestelde jaarrekening moet voorzien zijn van de Vaststellingsdatum. De wet verplicht om de jaarrekening openbaar te maken (lees: deponeren bij het Handelsregister) binnen acht dagen na vaststelling. Om derden de mogelijkheid te geven om te controleren of hieraan is voldaan moet in het Handelsregister zowel de vaststellingsdatum als de deponeringsdatum worden opgenomen.</li>
+      </ol>
+    </div>
+
+    <div class="footer second">
+      <div class="footer-content">
+        <a href="https://www.facebook.com/kamervankoophandel">
+          <img alt="KVK - Facebook" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0id2hpdGUiPgogICAgICAgICAgICA8Y2lyY2xlIGZpbGw9IiNhYTQxOGMiIGN4PSIzMiIgY3k9IjMyIiByPSIzMiI+PC9jaXJjbGU+CiAgICAgICAgICAgIDxwYXRoIGQ9Ik0xNC44OCwxNC4zM2MwLC4zLS4yNS41NS0uNTUuNTVoLTIuNTJ2LTMuODRoMS4yOWwuMTktMS41aC0xLjQ5di0uOTZjMC0uNDMuMTItLjczLjc0LS43M2guNzl2LTEuMzNjLS4zOC0uMDQtLjc3LS4wNi0xLjE1LS4wNi0xLjE1LDAtMS45My43LTEuOTMsMS45OHYxLjFoLTEuMjl2MS41aDEuMjl2My44NGgtNC43NWMtLjMxLDAtLjU1LS4yNS0uNTUtLjU1VjUuNTFjMC0uMzEuMjUtLjU1LjU1LS41NWg4LjgyYy4zMSwwLC41NS4yNS41NS41NXY4LjgyWk05LjkyLDBDNC40NCwwLDAsNC40NCwwLDkuOTJzNC40NCw5LjkyLDkuOTIsOS45Miw5LjkyLTQuNDQsOS45Mi05LjkyUzE1LjQsMCw5LjkyLDAiPjwvcGF0aD4KICAgICAgICA8L3N2Zz4="/>
+        </a>
+        <a href="https://www.linkedin.com/company/kamer-van-koophandel">
+          <img alt="KVK - linkedin" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0id2hpdGUiPgogICAgICAgICAgPGNpcmNsZSBmaWxsPSIjYWE0MThjIiBjeD0iMzIiIGN5PSIzMiIgcj0iMzIiPjwvY2lyY2xlPgogICAgICAgICAgPHBhdGggZD0iTTcuMTYsNi4zMWMtLjQ3LDAtLjg2LjM4LS44Ni44NnMuMzguODYuODYuODYuODYtLjM4Ljg2LS44Ni0uMzgtLjg2LS44Ni0uODYiPjwvcGF0aD4KICAgICAgICAgIDxyZWN0IHg9IjYuNDIiIHk9IjguNjgiIHdpZHRoPSIxLjQ4IiBoZWlnaHQ9IjQuNzUiPjwvcmVjdD4KICAgICAgICAgIDxwYXRoIGQ9Ik0xMS42Niw4LjU2Yy0uNzIsMC0xLjIuMzktMS40Ljc3aC0uMDJ2LS42NWgtMS40MnY0Ljc1aDEuNDd2LTIuMzVjMC0uNjIuMTItMS4yMi44OS0xLjIycy43Ny43MS43NywxLjI2djIuMzFoMS40N3YtMi42MWMwLTEuMjgtLjI4LTIuMjYtMS43Ny0yLjI2Ij48L3BhdGg+CiAgICAgICAgICA8cGF0aCBkPSJNMTQuODgsMTQuMTdjMCwuNC0uMzMuNzItLjc0LjcySDUuNjljLS40LDAtLjczLS4zMi0uNzMtLjcyVjUuNjhjMC0uMzkuMzMtLjcxLjczLS43MWg4LjQ1Yy40LDAsLjc0LjMyLjc0LjcxdjguNDlaTTkuOTIsMEM0LjQ0LDAsMCw0LjQ0LDAsOS45MnM0LjQ0LDkuOTIsOS45Miw5LjkyLDkuOTItNC40NCw5LjkyLTkuOTJTMTUuNCwwLDkuOTIsMCI+PC9wYXRoPgogICAgICAgIDwvc3ZnPg=="/></a>
+        <a href="https://x.com/KvK_NL">
+          <img alt="KVK - X" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCIgZmlsbD0id2hpdGUiPgogICAgICAgICAgPGNpcmNsZSBmaWxsPSIjYWE0MThjIiBjeD0iMzIiIGN5PSIzMiIgcj0iMzIiPjwvY2lyY2xlPgogICAgICAgICAgPHBhdGggZD0iTTMyIDBhMzIgMzIgMCAwMTMyIDMyYzAgMTcuNjczLTE0LjMyNyAzMi0zMiAzMkMxNC4zMjcgNjQgMCA0OS42NzMgMCAzMiAwIDE0LjMyNyAxNC4zMjcgMCAzMiAwem0tNi43NjUgMTZIMTUuMDgzbDEzLjE3MyAxNy42NUwxNSA0OGgyLjk4M0wyOS41OSAzNS40MzYgMzguOTY1IDQ4aDEwLjE1M0wzNS4yMDQgMjkuMzU3IDQ3LjU0MiAxNkg0NC41NkwzMy44NzEgMjcuNTcxIDI1LjIzNSAxNnptLTEuMSAyLjIwMkw0NC43MyA0NS43OThoLTQuNjY0TDE5LjQ3IDE4LjIwMmg0LjY2NHoiPjwvcGF0aD4KICAgICAgICA8L3N2Zz4="/></a>
+        <a href="https://www.youtube.com/user/DeKamerVanKoophandel">
+          <img alt="KVK - YouTube" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0id2hpdGUiPgogICAgICAgICAgPGNpcmNsZSBmaWxsPSIjYWE0MThjIiBjeD0iMzIiIGN5PSIzMiIgcj0iMzIiPjwvY2lyY2xlPgogICAgICAgICAgPHBvbHlnb24gcG9pbnRzPSI4LjU2IDExLjg5IDEyLjAzIDkuOTIgOC41NiA3Ljk0IDguNTYgMTEuODkiPjwvcG9seWdvbj4KICAgICAgICAgIDxwYXRoIGQ9Ik0xNi4yNiwxMy4xMmMtLjE1LjU3LS42LDEuMDItMS4xNywxLjE4LTEuMDMuMjgtNS4xNy4yOC01LjE3LjI4LDAsMC00LjEzLDAtNS4xNy0uMjgtLjU3LS4xNS0xLjAyLS42LTEuMTctMS4xOC0uMjgtMS4wNC0uMjgtMy4yLS4yOC0zLjIsMCwwLDAtMi4xNy4yOC0zLjIuMTUtLjU3LjYtMS4wMiwxLjE3LTEuMTgsMS4wMy0uMjgsNS4xNy0uMjgsNS4xNy0uMjgsMCwwLDQuMTQsMCw1LjE3LjI4LjU3LjE1LDEuMDIuNiwxLjE3LDEuMTguMjgsMS4wNC4yOCwzLjIuMjgsMy4yLDAsMCwwLDIuMTctLjI4LDMuMk05LjkyLDBDNC40NCwwLDAsNC40NCwwLDkuOTJzNC40NCw5LjkyLDkuOTIsOS45Miw5LjkyLTQuNDQsOS45Mi05LjkyUzE1LjQsMCw5LjkyLDAiPjwvcGF0aD4KICAgICAgICA8L3N2Zz4="/></a>
+      </div>
+
+    </div>
+  </div>
+<!--BEGIN IXBRL VIEWER EXTENSIONS--><script src="ixbrlviewer.js" type="text/javascript"></script><script type="application/x.ixbrl-viewer+json">{
+ "sourceReports": [
+  {
+   "targetReports": [
+    {
+     "concepts": {
+      "bw2-titel9:LegalEntityName": {
+       "labels": {
+        "std": {
+         "en": "Name of the legal entity",
+         "nl": "Naam van de rechtspersoon",
+         "de": "Name der K\u00f6rperschaft",
+         "fr": "Nom de l'entit\u00e9 juridique"
+        },
+        "ns0": {
+         "en": "Name",
+         "nl": "Naam",
+         "de": "Name",
+         "fr": "Nom"
+        },
+        "doc": {
+         "nl": "De statutaire naam van de rechtspersoon."
+        }
+       },
+       "r": [
+        [
+         [
+          "Article",
+          "380b"
+         ],
+         [
+          "IssueDate",
+          "2019-01-01"
+         ],
+         [
+          "Name",
+          "Burgerlijk wetboek boek 2"
+         ],
+         [
+          "Paragraph",
+          "a"
+         ]
+        ],
+        [
+         [
+          "Chapter",
+          "110"
+         ],
+         [
+          "IssueDate",
+          "2019-01-01"
+         ],
+         [
+          "Name",
+          "Richtlijnen voor de jaarverslaggeving"
+         ],
+         [
+          "Paragraph",
+          "103"
+         ],
+         [
+          "Subparagraph",
+          "a"
+         ]
+        ],
+        [
+         [
+          "Chapter",
+          "300"
+         ],
+         [
+          "IssueDate",
+          "2019-01-01"
+         ],
+         [
+          "Name",
+          "Richtlijnen voor de jaarverslaggeving"
+         ],
+         [
+          "Paragraph",
+          "104a"
+         ]
+        ],
+        [
+         [
+          "Chapter",
+          "640"
+         ],
+         [
+          "IssueDate",
+          "2019-01-01"
+         ],
+         [
+          "Name",
+          "Richtlijnen voor de jaarverslaggeving"
+         ],
+         [
+          "Paragraph",
+          "401a"
+         ]
+        ],
+        [
+         [
+          "Chapter",
+          "A1"
+         ],
+         [
+          "IssueDate",
+          "2019-01-01"
+         ],
+         [
+          "Name",
+          "Richtlijnen voor de jaarverslaggeving voor kleine rechtspersonen"
+         ],
+         [
+          "Paragraph",
+          "306"
+         ]
+        ],
+        [
+         [
+          "Chapter",
+          "B18"
+         ],
+         [
+          "IssueDate",
+          "2019-01-01"
+         ],
+         [
+          "Name",
+          "Richtlijnen voor de jaarverslaggeving voor kleine rechtspersonen"
+         ],
+         [
+          "Paragraph",
+          "104"
+         ],
+         [
+          "Subparagraph",
+          "a"
+         ]
+        ],
+        [
+         [
+          "Chapter",
+          "C1"
+         ],
+         [
+          "IssueDate",
+          "2019-01-01"
+         ],
+         [
+          "Name",
+          "Richtlijnen voor de jaarverslaggeving voor kleine rechtspersonen"
+         ],
+         [
+          "Paragraph",
+          "303a"
+         ]
+        ]
+       ]
+      },
+      "bw2-titel9:LegalEntityLegalForm": {
+       "labels": {
+        "std": {
+         "en": "Legal form of the legal entity",
+         "nl": "Rechtsvorm van de rechtspersoon",
+         "de": "Rechtsform der K\u00f6rperschaft",
+         "fr": "Forme juridique de la personne morale"
+        },
+        "ns0": {
+         "en": "Legal form",
+         "nl": "Rechtsvorm",
+         "de": "Rechtsform",
+         "fr": "Forme juridique"
+        },
+        "doc": {
+         "nl": "De in het Nederlands recht bekende ondernemingsvormen van de rechtspersoon."
+        }
+       },
+       "r": [
+        [
+         [
+          "Article",
+          "380b"
+         ],
+         [
+          "IssueDate",
+          "2023-01-01"
+         ],
+         [
+          "Name",
+          "Burgerlijk wetboek boek 2"
+         ],
+         [
+          "Paragraph",
+          "b"
+         ]
+        ],
+        [
+         [
+          "Chapter",
+          "100"
+         ],
+         [
+          "IssueDate",
+          "2023-01-01"
+         ],
+         [
+          "Name",
+          "Richtlijnen voor de jaarverslaggeving"
+         ],
+         [
+          "Paragraph",
+          "201"
+         ]
+        ],
+        [
+         [
+          "Chapter",
+          "300"
+         ],
+         [
+          "IssueDate",
+          "2023-01-01"
+         ],
+         [
+          "Name",
+          "Richtlijnen voor de jaarverslaggeving"
+         ],
+         [
+          "Paragraph",
+          "104a"
+         ]
+        ],
+        [
+         [
+          "Chapter",
+          "640"
+         ],
+         [
+          "IssueDate",
+          "2023-01-01"
+         ],
+         [
+          "Name",
+          "Richtlijnen voor de jaarverslaggeving"
+         ],
+         [
+          "Paragraph",
+          "401a"
+         ]
+        ],
+        [
+         [
+          "Chapter",
+          "B18"
+         ],
+         [
+          "IssueDate",
+          "2023-01-01"
+         ],
+         [
+          "Name",
+          "Richtlijnen voor de jaarverslaggeving voor kleine rechtspersonen"
+         ],
+         [
+          "Paragraph",
+          "104"
+         ],
+         [
+          "Subparagraph",
+          "a"
+         ]
+        ],
+        [
+         [
+          "Chapter",
+          "C1"
+         ],
+         [
+          "IssueDate",
+          "2023-01-01"
+         ],
+         [
+          "Name",
+          "Richtlijnen voor de jaarverslaggeving voor kleine rechtspersonen"
+         ],
+         [
+          "Paragraph",
+          "303a"
+         ]
+        ]
+       ]
+      },
+      "bw2-titel9:LegalEntityRegisteredOffice": {
+       "labels": {
+        "std": {
+         "en": "Registered office of the legal entity",
+         "nl": "Zetel van de rechtspersoon",
+         "de": "Gesch\u00e4ftssitz der K\u00f6rperschaft",
+         "fr": "Si\u00e8ge social de l'entit\u00e9 juridique"
+        },
+        "ns0": {
+         "en": "Registered office",
+         "nl": "Zetel",
+         "de": "Gesch\u00e4ftssitz",
+         "fr": "Si\u00e8ge social"
+        },
+        "doc": {
+         "nl": "De statutaire vestigingsplaats van de rechtspersoon."
+        }
+       },
+       "r": [
+        [
+         [
+          "Article",
+          "380b"
+         ],
+         [
+          "IssueDate",
+          "2023-01-01"
+         ],
+         [
+          "Name",
+          "Burgerlijk wetboek boek 2"
+         ],
+         [
+          "Paragraph",
+          "c"
+         ]
+        ],
+        [
+         [
+          "Chapter",
+          "300"
+         ],
+         [
+          "IssueDate",
+          "2023-01-01"
+         ],
+         [
+          "Name",
+          "Richtlijnen voor de jaarverslaggeving"
+         ],
+         [
+          "Paragraph",
+          "104a"
+         ]
+        ],
+        [
+         [
+          "Chapter",
+          "300"
+         ],
+         [
+          "IssueDate",
+          "2023-01-01"
+         ],
+         [
+          "Name",
+          "Richtlijnen voor de jaarverslaggeving"
+         ],
+         [
+          "Paragraph",
+          "105"
+         ],
+         [
+          "Subparagraph",
+          "a"
+         ]
+        ],
+        [
+         [
+          "Chapter",
+          "640"
+         ],
+         [
+          "IssueDate",
+          "2023-01-01"
+         ],
+         [
+          "Name",
+          "Richtlijnen voor de jaarverslaggeving"
+         ],
+         [
+          "Paragraph",
+          "401a"
+         ]
+        ],
+        [
+         [
+          "Chapter",
+          "B18"
+         ],
+         [
+          "IssueDate",
+          "2023-01-01"
+         ],
+         [
+          "Name",
+          "Richtlijnen voor de jaarverslaggeving voor kleine rechtspersonen"
+         ],
+         [
+          "Paragraph",
+          "104"
+         ],
+         [
+          "Subparagraph",
+          "a"
+         ]
+        ],
+        [
+         [
+          "Chapter",
+          "C1"
+         ],
+         [
+          "IssueDate",
+          "2023-01-01"
+         ],
+         [
+          "Name",
+          "Richtlijnen voor de jaarverslaggeving voor kleine rechtspersonen"
+         ],
+         [
+          "Paragraph",
+          "303a"
+         ]
+        ]
+       ]
+      },
+      "bw2-titel9:ChamberOfCommerceRegistrationNumber": {
+       "labels": {
+        "std": {
+         "en": "Registration number at the Chamber of Commerce",
+         "nl": "Registratienummer bij de Kamer van Koophandel",
+         "de": "Registrierungsnummer bei der Handelskammer",
+         "fr": "Num\u00e9ro d'enregistrement \u00e0 la Chambre du commerce"
+        },
+        "ns0": {
+         "en": "CoC number",
+         "nl": "KvK nummer",
+         "de": "Handelsregisternummer",
+         "fr": "Num\u00e9ro Chambre du commerce"
+        },
+        "doc": {
+         "nl": "Het registratienummer bij de kamer van koophandel."
+        }
+       },
+       "r": [
+        [
+         [
+          "Article",
+          "380b"
+         ],
+         [
+          "IssueDate",
+          "2019-01-01"
+         ],
+         [
+          "Name",
+          "Burgerlijk wetboek boek 2"
+         ],
+         [
+          "Paragraph",
+          "d"
+         ]
+        ],
+        [
+         [
+          "Chapter",
+          "300"
+         ],
+         [
+          "IssueDate",
+          "2019-01-01"
+         ],
+         [
+          "Name",
+          "Richtlijnen voor de jaarverslaggeving"
+         ],
+         [
+          "Paragraph",
+          "104a"
+         ]
+        ],
+        [
+         [
+          "Chapter",
+          "C1"
+         ],
+         [
+          "IssueDate",
+          "2019-01-01"
+         ],
+         [
+          "Name",
+          "Richtlijnen voor de jaarverslaggeving voor kleine rechtspersonen"
+         ],
+         [
+          "Paragraph",
+          "303a"
+         ]
+        ]
+       ]
+      },
+      "kvk:LegalEntitySizeSmall": {
+       "labels": {
+        "std": {
+         "nl": "Bedrijfsklasse 'Klein'",
+         "en": "Legal entity size 'Small'"
+        },
+        "doc": {
+         "nl": "Dit concept geeft aan dat de rechtspersoon rapporteert op basis van de bedrijfsklasse 'Klein'."
+        }
+       }
+      },
+      "bw2-titel9:FinancialReportingPeriodEndDate": {
+       "labels": {
+        "std": {
+         "en": "End date of the financial reporting period",
+         "nl": "Balansdatum"
+        },
+        "doc": {
+         "nl": "De einddatum van de financi\u00eble rapportage periode."
+        }
+       },
+       "r": [
+        [
+         [
+          "Article",
+          "3"
+         ],
+         [
+          "IssueDate",
+          "2015-11-01"
+         ],
+         [
+          "Name",
+          "Besluit modellen jaarrekening"
+         ]
+        ]
+       ]
+      },
+      "bw2-titel9:FinancialReportingPeriod": {
+       "labels": {
+        "std": {
+         "en": "Financial reporting period",
+         "nl": "Boekjaar"
+        },
+        "doc": {
+         "nl": "De periode waarop de jaarrekening betrekking heeft."
+        }
+       },
+       "r": [
+        [
+         [
+          "Article",
+          "3"
+         ],
+         [
+          "IssueDate",
+          "2015-11-01"
+         ],
+         [
+          "Name",
+          "Besluit modellen jaarrekening"
+         ]
+        ]
+       ]
+      },
+      "rj:FinancialStatementsConsolidated": {
+       "labels": {
+        "std": {
+         "en": "Consolidated financial statements?",
+         "nl": "Geconsolideerde jaarrekening?"
+        },
+        "doc": {
+         "nl": "Is sprake van een geconsolideerde jaarrekening?"
+        }
+       },
+       "r": [
+        [
+         [
+          "Chapter",
+          "110"
+         ],
+         [
+          "IssueDate",
+          "2023-01-01"
+         ],
+         [
+          "Name",
+          "Richtlijnen voor de jaarverslaggeving"
+         ],
+         [
+          "Paragraph",
+          "103"
+         ],
+         [
+          "Subparagraph",
+          "b"
+         ]
+        ],
+        [
+         [
+          "Chapter",
+          "A1"
+         ],
+         [
+          "IssueDate",
+          "2023-01-01"
+         ],
+         [
+          "Name",
+          "Richtlijnen voor de jaarverslaggeving voor kleine rechtspersonen"
+         ],
+         [
+          "Paragraph",
+          "306"
+         ]
+        ]
+       ]
+      },
+      "bw2-titel9:DocumentAdoptionStatus": {
+       "labels": {
+        "std": {
+         "en": "Financial statements adopted (Y/N)",
+         "nl": "Jaarrekening vastgesteld (J/N)",
+         "de": "Jahresabschl\u00fcsse festgestellt (J/N)",
+         "fr": "\u00c9tats financiers adopt\u00e9s (O/N)"
+        },
+        "ns0": {
+         "en": "Adopted (Y/N)",
+         "nl": "Vastgesteld (J/N)",
+         "de": "Festgestellt (J/N)",
+         "fr": "Adopt\u00e9 (O/N)"
+        },
+        "doc": {
+         "nl": "De vermelding of de jaarrekening al dan niet is vastgesteld en goedgekeurd door de bestuurders en commissarissen."
+        }
+       },
+       "r": [
+        [
+         [
+          "Article",
+          "394"
+         ],
+         [
+          "IssueDate",
+          "2023-01-01"
+         ],
+         [
+          "Name",
+          "Burgerlijk wetboek boek 2"
+         ],
+         [
+          "Paragraph",
+          "2"
+         ]
+        ],
+        [
+         [
+          "Article",
+          "395"
+         ],
+         [
+          "IssueDate",
+          "2023-01-01"
+         ],
+         [
+          "Name",
+          "Burgerlijk wetboek boek 2"
+         ]
+        ],
+        [
+         [
+          "Chapter",
+          "396"
+         ],
+         [
+          "IssueDate",
+          "2023-01-01"
+         ],
+         [
+          "Name",
+          "Richtlijnen voor de jaarverslaggeving"
+         ],
+         [
+          "Paragraph",
+          "102"
+         ]
+        ],
+        [
+         [
+          "Chapter",
+          "396"
+         ],
+         [
+          "IssueDate",
+          "2023-01-01"
+         ],
+         [
+          "Name",
+          "Richtlijnen voor de jaarverslaggeving"
+         ],
+         [
+          "Paragraph",
+          "117"
+         ]
+        ],
+        [
+         [
+          "Chapter",
+          "A6"
+         ],
+         [
+          "IssueDate",
+          "2023-01-01"
+         ],
+         [
+          "Name",
+          "Richtlijnen voor de jaarverslaggeving voor kleine rechtspersonen"
+         ],
+         [
+          "Paragraph",
+          "103"
+         ]
+        ]
+       ]
+      },
+      "bw2-titel9:DocumentAdoptionDate": {
+       "labels": {
+        "std": {
+         "en": "Date of adoption of the financial statements",
+         "nl": "Datum van vaststelling van de jaarrekening",
+         "de": "Datum der Feststellung der Jahresabschl\u00fcsse",
+         "fr": "Date d'adoption des \u00e9tats financiers"
+        },
+        "ns0": {
+         "en": "Date of adoption",
+         "nl": "Datum van vaststelling",
+         "de": "Datum der Feststellung",
+         "fr": "Date d'adoption"
+        },
+        "doc": {
+         "nl": "De datum van vaststelling en goedkeuring van de jaarrekening door de bestuurders en commissarissen."
+        }
+       },
+       "r": [
+        [
+         [
+          "Article",
+          "394"
+         ],
+         [
+          "IssueDate",
+          "2023-01-01"
+         ],
+         [
+          "Name",
+          "Burgerlijk wetboek boek 2"
+         ],
+         [
+          "Paragraph",
+          "1"
+         ]
+        ],
+        [
+         [
+          "Chapter",
+          "396"
+         ],
+         [
+          "IssueDate",
+          "2023-01-01"
+         ],
+         [
+          "Name",
+          "Richtlijnen voor de jaarverslaggeving"
+         ],
+         [
+          "Paragraph",
+          "102"
+         ]
+        ],
+        [
+         [
+          "Chapter",
+          "A6"
+         ],
+         [
+          "IssueDate",
+          "2023-01-01"
+         ],
+         [
+          "Name",
+          "Richtlijnen voor de jaarverslaggeving voor kleine rechtspersonen"
+         ],
+         [
+          "Paragraph",
+          "103"
+         ]
+        ]
+       ]
+      },
+      "kvk:DocumentEntityInformationTitle": {
+       "labels": {
+        "std": {
+         "nl": "Informatie over de rapportage en de rechtspersoon",
+         "en": "Document and entity information",
+         "fr": "Informations sur le reporting et l'entreprise dot\u00e9e de la personnalit\u00e9 juridique",
+         "de": "Informationen \u00fcber die Berichterstattung und die juristische Person"
+        }
+       }
+      },
+      "kvk:LegalEntitySizeMicro": {
+       "labels": {
+        "std": {
+         "nl": "Bedrijfsklasse 'Micro'",
+         "en": "Legal entity size 'Micro'"
+        },
+        "doc": {
+         "nl": "Dit concept geeft aan dat de rechtspersoon rapporteert op basis van de bedrijfsklasse 'Micro'."
+        }
+       }
+      },
+      "kvk:LegalEntitySizeMedium": {
+       "labels": {
+        "std": {
+         "nl": "Bedrijfsklasse 'Middelgroot'",
+         "en": "Legal entity size 'Medium'"
+        },
+        "doc": {
+         "nl": "Dit concept geeft aan dat de rechtspersoon rapporteert op basis van de bedrijfsklasse 'Middelgroot'."
+        }
+       }
+      },
+      "kvk:LegalEntitySizeLarge": {
+       "labels": {
+        "std": {
+         "nl": "Bedrijfsklasse 'Groot'",
+         "en": "Legal entity size 'Large'"
+        },
+        "doc": {
+         "nl": "Dit concept geeft aan dat de rechtspersoon rapporteert op basis van de bedrijfsklasse 'Groot'."
+        }
+       }
+      }
+     },
+     "facts": {
+      "ID000010": {
+       "a": {
+        "c": "bw2-titel9:LegalEntityName",
+        "e": "e:12345678",
+        "p": "2023-01-01/2024-01-01"
+       },
+       "v": "Beispiel GmbH"
+      },
+      "ID000011": {
+       "a": {
+        "c": "bw2-titel9:LegalEntityLegalForm",
+        "e": "e:12345678",
+        "p": "2023-01-01/2024-01-01"
+       },
+       "v": "GmbH"
+      },
+      "ID000012": {
+       "a": {
+        "c": "bw2-titel9:LegalEntityRegisteredOffice",
+        "e": "e:12345678",
+        "p": "2023-01-01/2024-01-01"
+       },
+       "v": "Hamburg"
+      },
+      "ID000020": {
+       "a": {
+        "c": "bw2-titel9:ChamberOfCommerceRegistrationNumber",
+        "e": "e:12345678",
+        "p": "2023-01-01/2024-01-01"
+       },
+       "v": "12345678"
+      },
+      "ID0000030": {
+       "a": {
+        "c": "kvk:LegalEntitySizeSmall",
+        "e": "e:12345678",
+        "p": "2023-01-01/2024-01-01"
+       },
+       "v": "true",
+       "f": "ixt:fixed-true"
+      },
+      "ID0000032": {
+       "a": {
+        "c": "bw2-titel9:FinancialReportingPeriodEndDate",
+        "e": "e:12345678",
+        "p": "2023-01-01/2024-01-01"
+       },
+       "v": "2023-12-31",
+       "f": "ixt:date-day-monthname-year-nl"
+      },
+      "ID000041": {
+       "a": {
+        "c": "bw2-titel9:FinancialReportingPeriod",
+        "e": "e:12345678",
+        "p": "2023-01-01/2024-01-01"
+       },
+       "v": "2023"
+      },
+      "ID000042": {
+       "a": {
+        "c": "rj:FinancialStatementsConsolidated",
+        "e": "e:12345678",
+        "p": "2023-01-01/2024-01-01"
+       },
+       "v": "false",
+       "f": "ixt:fixed-false"
+      },
+      "ID0000050": {
+       "a": {
+        "c": "bw2-titel9:DocumentAdoptionStatus",
+        "e": "e:12345678",
+        "p": "2023-01-01/2024-01-01"
+       },
+       "v": "true",
+       "f": "ixt:fixed-true"
+      },
+      "ID0000060": {
+       "a": {
+        "c": "bw2-titel9:DocumentAdoptionDate",
+        "e": "e:12345678",
+        "p": "2023-01-01/2024-01-01"
+       },
+       "v": "2024-11-08",
+       "f": "ixt:date-day-monthname-year-nl"
+      }
+     },
+     "target": null,
+     "roleDefs": {
+      "ns1": {
+       "en": "[000010] Document and Entity Information"
+      }
+     },
+     "rels": {
+      "pres": {
+       "ns1": {
+        "kvk:DocumentEntityInformationTitle": [
+         {
+          "t": "bw2-titel9:LegalEntityName"
+         },
+         {
+          "t": "bw2-titel9:LegalEntityLegalForm"
+         },
+         {
+          "t": "bw2-titel9:LegalEntityRegisteredOffice"
+         },
+         {
+          "t": "bw2-titel9:ChamberOfCommerceRegistrationNumber"
+         },
+         {
+          "t": "kvk:LegalEntitySizeMicro"
+         },
+         {
+          "t": "kvk:LegalEntitySizeSmall"
+         },
+         {
+          "t": "kvk:LegalEntitySizeMedium"
+         },
+         {
+          "t": "kvk:LegalEntitySizeLarge"
+         },
+         {
+          "t": "bw2-titel9:FinancialReportingPeriodEndDate"
+         },
+         {
+          "t": "bw2-titel9:FinancialReportingPeriod"
+         },
+         {
+          "t": "rj:FinancialStatementsConsolidated"
+         },
+         {
+          "t": "bw2-titel9:DocumentAdoptionStatus"
+         },
+         {
+          "t": "bw2-titel9:DocumentAdoptionDate"
+         }
+        ]
+       }
+      }
+     },
+     "localDocs": {
+      "beispielgmbh-deponeren-jaarrekening-bij-kvk.html": [
+       "inline"
+      ]
+     }
+    }
+   ],
+   "docSetFiles": [
+    "beispielgmbh-deponeren-jaarrekening-bij-kvk.html"
+   ]
+  }
+ ],
+ "features": [],
+ "prefixes": {
+  "bw2-titel9": "https://www.nltaxonomie.nl/jenv/2024-03-31/bw2-titel9-cor",
+  "e": "http://www.kvk.nl/kvk-id",
+  "kvk": "https://www.nltaxonomie.nl/kvk/2024-03-31/kvk-cor",
+  "rj": "https://www.nltaxonomie.nl/rj/2024-03-31/rj-cor"
+ },
+ "roles": {
+  "std": "http://www.xbrl.org/2003/role/label",
+  "doc": "http://www.xbrl.org/2003/role/documentation",
+  "calc": "http://www.xbrl.org/2003/arcrole/summation-item",
+  "pres": "http://www.xbrl.org/2003/arcrole/parent-child",
+  "d-d": "http://xbrl.org/int/dim/arcrole/dimension-default",
+  "w-n": "http://www.esma.europa.eu/xbrl/esef/arcrole/wider-narrower",
+  "ns0": "http://www.xbrl.org/2003/role/terseLabel",
+  "ns1": "https://www.nltaxonomie.nl/kvk/role/document-entity-information"
+ }
+}</script><!--END IXBRL VIEWER EXTENSIONS--></body>
+
+</html>
