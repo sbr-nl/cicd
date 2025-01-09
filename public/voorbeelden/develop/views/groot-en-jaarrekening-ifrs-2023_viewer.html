@@ -820,9 +820,19 @@
 		<!-- not used due to default <xbrldi:explicitMember dimension="ifrs-full:ConsolidatedAndSeparateFinancialStatementsAxis">ifrs-full:ConsolidatedMember</xbrldi:explicitMember> -->
       </xbrli:scenario>
     </xbrli:context>
-     <xbrli:unit id="EUR">
-          <xbrli:measure>iso4217:EUR</xbrli:measure>
-        </xbrli:unit>
+    <xbrli:unit id="EUR">
+        <xbrli:measure>iso4217:EUR</xbrli:measure>
+    </xbrli:unit>
+	<xbrli:unit id="EUR_per_share">
+        <xbrli:divide>
+            <xbrli:unitNumerator>
+                <xbrli:measure>iso4217:EUR</xbrli:measure>
+            </xbrli:unitNumerator>
+            <xbrli:unitDenominator>
+                <xbrli:measure>xbrli:shares</xbrli:measure>
+            </xbrli:unitDenominator>
+        </xbrli:divide>
+    </xbrli:unit>
       </ix:resources>
     </ix:header>
   </div>
@@ -1300,31 +1310,31 @@
           <tr>
             <td>- From continuing operations</td>
               <td>
-                <ix:nonFraction contextRef="context_2" decimals="2" format="ixt:num-dot-decimal" id="id00000540" name="ifrs-full:BasicEarningsLossPerShare" scale="0" unitRef="EUR">0.00</ix:nonFraction>
+                <ix:nonFraction contextRef="context_2" decimals="2" format="ixt:num-dot-decimal" id="id00000540" name="ifrs-full:BasicEarningsLossPerShare" scale="0" unitRef="EUR_per_share">0.00</ix:nonFraction>
               </td>
               <td></td>
               <td>
-                <ix:nonFraction contextRef="context_3" decimals="2" format="ixt:num-dot-decimal" id="id00000550" name="ifrs-full:BasicEarningsLossPerShare" scale="0" unitRef="EUR">0.00</ix:nonFraction>
+                <ix:nonFraction contextRef="context_3" decimals="2" format="ixt:num-dot-decimal" id="id00000550" name="ifrs-full:BasicEarningsLossPerShare" scale="0" unitRef="EUR_per_share">0.00</ix:nonFraction>
               </td>
           </tr>		  
           <tr>
             <td>- From discontinued operations</td>
               <td>
-                <ix:nonFraction contextRef="context_2" decimals="2" format="ixt:num-dot-decimal" id="id00000560" name="ifrs-full:BasicEarningsLossPerShare" scale="0" unitRef="EUR">0.00</ix:nonFraction>
+                <ix:nonFraction contextRef="context_2" decimals="2" format="ixt:num-dot-decimal" id="id00000560" name="ifrs-full:BasicEarningsLossPerShare" scale="0" unitRef="EUR_per_share">0.00</ix:nonFraction>
               </td>
               <td></td>
               <td>
-                <ix:nonFraction contextRef="context_3" decimals="2" format="ixt:num-dot-decimal" id="id00000570" name="ifrs-full:BasicEarningsLossPerShare" scale="0" unitRef="EUR">0.00</ix:nonFraction>
+                <ix:nonFraction contextRef="context_3" decimals="2" format="ixt:num-dot-decimal" id="id00000570" name="ifrs-full:BasicEarningsLossPerShare" scale="0" unitRef="EUR_per_share">0.00</ix:nonFraction>
               </td>
           </tr>		  
           <tr>
             <td>Total</td>
               <td>
-                <ix:nonFraction contextRef="context_2" decimals="2" format="ixt:num-dot-decimal" id="id00000580" name="ifrs-full:BasicEarningsLossPerShare" scale="0" unitRef="EUR">0.00</ix:nonFraction>
+                <ix:nonFraction contextRef="context_2" decimals="2" format="ixt:num-dot-decimal" id="id00000580" name="ifrs-full:BasicEarningsLossPerShare" scale="0" unitRef="EUR_per_share">0.00</ix:nonFraction>
               </td>
               <td></td>
               <td>
-                <ix:nonFraction contextRef="context_3" decimals="2" format="ixt:num-dot-decimal" id="id00000590" name="ifrs-full:BasicEarningsLossPerShare" scale="0" unitRef="EUR">0.00</ix:nonFraction>
+                <ix:nonFraction contextRef="context_3" decimals="2" format="ixt:num-dot-decimal" id="id00000590" name="ifrs-full:BasicEarningsLossPerShare" scale="0" unitRef="EUR_per_share">0.00</ix:nonFraction>
               </td>
           </tr>
 		  <tr class="empty-row sub-total">
@@ -1346,31 +1356,31 @@
           <tr>
             <td>- From continuing operations</td>
               <td>
-                <ix:nonFraction contextRef="context_2" decimals="2" format="ixt:num-dot-decimal" id="id00000600" name="ifrs-full:BasicEarningsLossPerShare" scale="0" unitRef="EUR">0.00</ix:nonFraction>
+                <ix:nonFraction contextRef="context_2" decimals="2" format="ixt:num-dot-decimal" id="id00000600" name="ifrs-full:BasicEarningsLossPerShare" scale="0" unitRef="EUR_per_share">0.00</ix:nonFraction>
               </td>
               <td></td>
               <td>
-                <ix:nonFraction contextRef="context_3" decimals="2" format="ixt:num-dot-decimal" id="id00000610" name="ifrs-full:BasicEarningsLossPerShare" scale="0" unitRef="EUR">0.00</ix:nonFraction>
+                <ix:nonFraction contextRef="context_3" decimals="2" format="ixt:num-dot-decimal" id="id00000610" name="ifrs-full:BasicEarningsLossPerShare" scale="0" unitRef="EUR_per_share">0.00</ix:nonFraction>
               </td>
           </tr>		  
           <tr>
             <td>- From discontinued operations</td>
               <td>
-                <ix:nonFraction contextRef="context_2" decimals="2" format="ixt:num-dot-decimal" id="id00000620" name="ifrs-full:BasicEarningsLossPerShare" scale="0" unitRef="EUR">0.00</ix:nonFraction>
+                <ix:nonFraction contextRef="context_2" decimals="2" format="ixt:num-dot-decimal" id="id00000620" name="ifrs-full:BasicEarningsLossPerShare" scale="0" unitRef="EUR_per_share">0.00</ix:nonFraction>
               </td>
               <td></td>
               <td>
-                <ix:nonFraction contextRef="context_3" decimals="2" format="ixt:num-dot-decimal" id="id00000630" name="ifrs-full:BasicEarningsLossPerShare" scale="0" unitRef="EUR">0.00</ix:nonFraction>
+                <ix:nonFraction contextRef="context_3" decimals="2" format="ixt:num-dot-decimal" id="id00000630" name="ifrs-full:BasicEarningsLossPerShare" scale="0" unitRef="EUR_per_share">0.00</ix:nonFraction>
               </td>
           </tr>			  
           <tr>
             <td>Total</td>
             <td>
-              <ix:nonFraction contextRef="context_2" decimals="2" format="ixt:num-dot-decimal" id="id00000640" name="ifrs-full:DilutedEarningsLossPerShare" scale="0" unitRef="EUR">0.00</ix:nonFraction>
+              <ix:nonFraction contextRef="context_2" decimals="2" format="ixt:num-dot-decimal" id="id00000640" name="ifrs-full:DilutedEarningsLossPerShare" scale="0" unitRef="EUR_per_share">0.00</ix:nonFraction>
             </td>
             <td></td>
             <td>
-              <ix:nonFraction contextRef="context_3" decimals="2" format="ixt:num-dot-decimal" id="id00000650" name="ifrs-full:DilutedEarningsLossPerShare" scale="0" unitRef="EUR">0.00</ix:nonFraction>
+              <ix:nonFraction contextRef="context_3" decimals="2" format="ixt:num-dot-decimal" id="id00000650" name="ifrs-full:DilutedEarningsLossPerShare" scale="0" unitRef="EUR_per_share">0.00</ix:nonFraction>
             </td>
           </tr>
           <tr class="empty-row sub-total">
@@ -37023,7 +37033,7 @@
         "c": "ifrs-full:BasicEarningsLossPerShare",
         "e": "e:12345678",
         "m": false,
-        "u": "iso4217:EUR",
+        "u": "iso4217:EUR/xbrli:shares",
         "p": "2023-01-01/2024-01-01"
        },
        "v": "0",
@@ -37035,7 +37045,7 @@
         "c": "ifrs-full:BasicEarningsLossPerShare",
         "e": "e:12345678",
         "m": false,
-        "u": "iso4217:EUR",
+        "u": "iso4217:EUR/xbrli:shares",
         "p": "2022-01-01/2023-01-01"
        },
        "v": "0",
@@ -37047,7 +37057,7 @@
         "c": "ifrs-full:BasicEarningsLossPerShare",
         "e": "e:12345678",
         "m": false,
-        "u": "iso4217:EUR",
+        "u": "iso4217:EUR/xbrli:shares",
         "p": "2023-01-01/2024-01-01"
        },
        "v": "0",
@@ -37059,7 +37069,7 @@
         "c": "ifrs-full:BasicEarningsLossPerShare",
         "e": "e:12345678",
         "m": false,
-        "u": "iso4217:EUR",
+        "u": "iso4217:EUR/xbrli:shares",
         "p": "2022-01-01/2023-01-01"
        },
        "v": "0",
@@ -37071,7 +37081,7 @@
         "c": "ifrs-full:BasicEarningsLossPerShare",
         "e": "e:12345678",
         "m": false,
-        "u": "iso4217:EUR",
+        "u": "iso4217:EUR/xbrli:shares",
         "p": "2023-01-01/2024-01-01"
        },
        "v": "0",
@@ -37083,7 +37093,7 @@
         "c": "ifrs-full:BasicEarningsLossPerShare",
         "e": "e:12345678",
         "m": false,
-        "u": "iso4217:EUR",
+        "u": "iso4217:EUR/xbrli:shares",
         "p": "2022-01-01/2023-01-01"
        },
        "v": "0",
@@ -37095,7 +37105,7 @@
         "c": "ifrs-full:BasicEarningsLossPerShare",
         "e": "e:12345678",
         "m": false,
-        "u": "iso4217:EUR",
+        "u": "iso4217:EUR/xbrli:shares",
         "p": "2023-01-01/2024-01-01"
        },
        "v": "0",
@@ -37107,7 +37117,7 @@
         "c": "ifrs-full:BasicEarningsLossPerShare",
         "e": "e:12345678",
         "m": false,
-        "u": "iso4217:EUR",
+        "u": "iso4217:EUR/xbrli:shares",
         "p": "2022-01-01/2023-01-01"
        },
        "v": "0",
@@ -37119,7 +37129,7 @@
         "c": "ifrs-full:BasicEarningsLossPerShare",
         "e": "e:12345678",
         "m": false,
-        "u": "iso4217:EUR",
+        "u": "iso4217:EUR/xbrli:shares",
         "p": "2023-01-01/2024-01-01"
        },
        "v": "0",
@@ -37131,7 +37141,7 @@
         "c": "ifrs-full:BasicEarningsLossPerShare",
         "e": "e:12345678",
         "m": false,
-        "u": "iso4217:EUR",
+        "u": "iso4217:EUR/xbrli:shares",
         "p": "2022-01-01/2023-01-01"
        },
        "v": "0",
@@ -37143,7 +37153,7 @@
         "c": "ifrs-full:DilutedEarningsLossPerShare",
         "e": "e:12345678",
         "m": false,
-        "u": "iso4217:EUR",
+        "u": "iso4217:EUR/xbrli:shares",
         "p": "2023-01-01/2024-01-01"
        },
        "v": "0",
@@ -37155,7 +37165,7 @@
         "c": "ifrs-full:DilutedEarningsLossPerShare",
         "e": "e:12345678",
         "m": false,
-        "u": "iso4217:EUR",
+        "u": "iso4217:EUR/xbrli:shares",
         "p": "2022-01-01/2023-01-01"
        },
        "v": "0",
